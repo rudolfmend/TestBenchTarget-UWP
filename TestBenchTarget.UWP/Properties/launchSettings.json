@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "TestBenchTarget.UWP": {
+      "commandName": "MsixPackage"
+    }
+  }
+}
