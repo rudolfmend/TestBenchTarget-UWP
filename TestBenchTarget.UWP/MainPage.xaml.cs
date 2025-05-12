@@ -6,122 +6,143 @@ using TestBenchTarget.UWP.ViewModels;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Navigation;
 
 namespace TestBenchTarget.UWP
 {
     public sealed partial class MainPage : Page
     {
+        private DispatcherTimer _timer;
         private MainViewModel _viewModel;
 
         public MainPage()
         {
-            try
-            {
-                System.Diagnostics.Debug.WriteLine("MainPage constructor beginning...");
+            this.InitializeComponent();
 
-                // Inicializácia XAML pred inicializáciou ViewModelu
-                this.InitializeComponent();
+            // Inicializácia časovača pre aktualizáciu času
+            TimeDisplay.Text = DateTime.Now.ToString("HH:mm:ss");
 
-                // Teraz inicializujeme ViewModel
-                _viewModel = new MainViewModel(new DataService());
-
-                // Nastavenie časovača pre aktualizáciu času
-                var timer = new DispatcherTimer();
-                timer.Interval = TimeSpan.FromSeconds(1);
-                timer.Tick += (s, e) => {
-                    TimeDisplay.Text = DateTime.Now.ToString("HH:mm:ss");
-                };
-                timer.Start();
+            _timer = new DispatcherTimer();
+            _timer.Interval = TimeSpan.FromSeconds(1);
+            _timer.Tick += (s, e) => {
                 TimeDisplay.Text = DateTime.Now.ToString("HH:mm:ss");
+            };
+            _timer.Start();
 
-                // Manuálne nastavenie dátového zdroja pre ListView
-                SetupListView();
+            // Inicializácia ViewModelu a nastavenie DataContext
+            _viewModel = new MainViewModel(new DataService());
+            this.DataContext = _viewModel;
 
-                // Manuálne pripojenie ovládacích prvkov k ViewModelu
-                ConnectControls();
+            // Inicializácia ComboBoxu pre výber dátumu
+            InitializeDateSelector();
 
-                System.Diagnostics.Debug.WriteLine("MainPage initialization completed successfully.");
-            }
-            catch (Exception ex)
+            // Registrácia udalosti pre vyčistenie zdrojov
+            this.Unloaded += MainPage_Unloaded;
+        }
+
+        private void MainPage_Unloaded(object sender, RoutedEventArgs e)
+        {
+            // Zastavenie a vyčistenie časovača
+            if (_timer != null)
             {
-                System.Diagnostics.Debug.WriteLine($"Error in MainPage constructor: {ex.Message}\nStackTrace: {ex.StackTrace}");
-                if (System.Diagnostics.Debugger.IsAttached)
+                _timer.Stop();
+                _timer = null!;
+            }
+        }
+
+        private void InitializeDateSelector()
+        {
+            // Naplnenie ComboBoxu dátumami
+            var dateItems = new List<string>();
+            for (int i = -367; i <= 367; i++)
+            {
+                dateItems.Add(DateTime.Now.AddDays(i).ToString("dd.MM.yyyy"));
+            }
+
+            DateSelector.ItemsSource = dateItems;
+            DateSelector.SelectedIndex = 367; // Dnešný dátum je v strede
+        }
+
+        private void PointsInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox? textBox = sender as TextBox;
+            if (textBox == null) return;
+
+            // Zachovanie pozície kurzora
+            int cursorPosition = textBox.SelectionStart;
+
+            // Odstránenie všetkých znakov okrem čísel
+            string cleanedText = "";
+            foreach (char c in textBox.Text)
+            {
+                if (char.IsDigit(c))
                 {
-                    System.Diagnostics.Debugger.Break();
+                    cleanedText += c;
+                }
+            }
+
+            // Ak je text prázdny, nastavíme 0
+            if (string.IsNullOrEmpty(cleanedText))
+            {
+                textBox.Text = "0";
+                cursorPosition = 1; // kurzor za číslom
+            }
+            // Ak sa text zmenil, aktualizujeme ho
+            else if (cleanedText != textBox.Text)
+            {
+                textBox.Text = cleanedText;
+                // Obnovenie pozície kurzora
+                if (cursorPosition <= textBox.Text.Length)
+                {
+                    textBox.SelectionStart = cursorPosition;
+                }
+                else
+                {
+                    textBox.SelectionStart = textBox.Text.Length;
                 }
             }
         }
 
-        private void SetupListView()
+        private void PointsInput_LostFocus(object sender, RoutedEventArgs e)
         {
-            // Nastavenie ItemTemplate manuálne
-            MainListView.ItemTemplate = (DataTemplate)Resources["ItemTemplate"];
+            TextBox? textBox = sender as TextBox;
+            if (textBox == null) return;
 
-            // Nastavenie ItemsSource
-            try
+            if (string.IsNullOrEmpty(textBox.Text))
             {
-                MainListView.ItemsSource = _viewModel.DataItems;
-
-                // Pridanie handlera pre SelectionChanged
-                MainListView.SelectionChanged += (s, e) => {
-                    if (MainListView.SelectedItem is DataItem item)
-                    {
-                        _viewModel.SelectedItem = item;
-                    }
-                    else
-                    {
-                        _viewModel.SelectedItem = null;
-                    }
-                };
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"Error setting ListView ItemsSource: {ex.Message}");
+                textBox.Text = "0";
             }
         }
 
-        private void ConnectControls()
+        private void MainListView_KeyDown(object sender, KeyRoutedEventArgs e)
         {
-            try
+            if (e.Key == Windows.System.VirtualKey.Delete)
             {
-                // Prepojenie DatePicker s ViewModel
-                DateSelector.Date = _viewModel.SelectedDate;
-                DateSelector.DateChanged += (s, e) => {
-                    _viewModel.SelectedDate = DateSelector.Date;
-                };
-
-                // Prepojenie TextBoxov s ViewModel
-                ProcedureInput.Text = _viewModel.ProcedureText;
-                ProcedureInput.TextChanged += (s, e) => {
-                    _viewModel.ProcedureText = ProcedureInput.Text;
-                };
-
-                PointsInput.Text = _viewModel.PointsText;
-                PointsInput.TextChanged += (s, e) => {
-                    _viewModel.PointsText = PointsInput.Text;
-                };
-
-                DelegateInput.Text = _viewModel.DelegateText;
-                DelegateInput.TextChanged += (s, e) => {
-                    _viewModel.DelegateText = DelegateInput.Text;
-                };
-
-                // Prepojenie tlačidiel s príkazmi ViewModelu
-                AddButton.Click += (s, e) => _viewModel.AddCommand.Execute(null);
-                LoadButton.Click += (s, e) => _viewModel.LoadCommand.Execute(null);
-                SaveButton.Click += (s, e) => _viewModel.SaveCommand.Execute(null);
-                DeleteButton.Click += (s, e) => _viewModel.DeleteCommand.Execute(null);
-                OpenFolderButton.Click += (s, e) => _viewModel.OpenFolderCommand.Execute(null);
+                if (_viewModel.DeleteCommand.CanExecute(null))
+                {
+                    _viewModel.DeleteCommand.Execute(null);
+                }
+                e.Handled = true;
             }
-            catch (Exception ex)
+        }
+
+        private void MainListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var item = MainListView.SelectedItem as DataItem;
+            System.Diagnostics.Debug.WriteLine($"XAML Selection changed: {item != null}");
+
+            // Manuálna synchronizácia, ak by binding nefungoval
+            if (item != null && _viewModel.SelectedItem != item)
             {
-                System.Diagnostics.Debug.WriteLine($"Error connecting controls: {ex.Message}");
+                _viewModel.SelectedItem = item;
+                System.Diagnostics.Debug.WriteLine($"ViewModel SelectedItem manually updated");
             }
         }
     }
 
     // Konverter pre formátovanie dátumu
-    public partial class DateFormatConverter : IValueConverter
+    public sealed partial class DateFormatConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {

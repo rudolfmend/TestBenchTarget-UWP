@@ -5,10 +5,10 @@ namespace TestBenchTarget.UWP.Models
 {
     public class DataItem : INotifyPropertyChanged
     {
-        private DateTime dateColumnValue = DateTime.Now;
-        private string procedureColumnValue = string.Empty;
-        private int pointsColumnValue;
-        private string delegateColumnValue = string.Empty;
+        private DateTime _dateColumnValue = DateTime.Now;
+        private string _procedureColumnValue = string.Empty;
+        private int _pointsColumnValue;
+        private string _delegateColumnValue = string.Empty;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -19,12 +19,12 @@ namespace TestBenchTarget.UWP.Models
 
         public DateTime DateColumnValue
         {
-            get => dateColumnValue;
+            get => _dateColumnValue;
             set
             {
-                if (dateColumnValue != value.Date)
+                if (_dateColumnValue != value.Date)
                 {
-                    dateColumnValue = value.Date;
+                    _dateColumnValue = value.Date;
                     OnPropertyChanged(nameof(DateColumnValue));
                 }
             }
@@ -32,12 +32,12 @@ namespace TestBenchTarget.UWP.Models
 
         public string ProcedureColumnValue
         {
-            get => procedureColumnValue;
+            get => _procedureColumnValue;
             set
             {
-                if (procedureColumnValue != value)
+                if (_procedureColumnValue != value)
                 {
-                    procedureColumnValue = value;
+                    _procedureColumnValue = value;
                     OnPropertyChanged(nameof(ProcedureColumnValue));
                 }
             }
@@ -45,12 +45,12 @@ namespace TestBenchTarget.UWP.Models
 
         public int PointsColumnValue
         {
-            get => pointsColumnValue;
+            get => _pointsColumnValue;
             set
             {
-                if (pointsColumnValue != value)
+                if (_pointsColumnValue != value)
                 {
-                    pointsColumnValue = value;
+                    _pointsColumnValue = value;
                     OnPropertyChanged(nameof(PointsColumnValue));
                 }
             }
@@ -58,12 +58,12 @@ namespace TestBenchTarget.UWP.Models
 
         public string DelegateColumnValue
         {
-            get => delegateColumnValue;
+            get => _delegateColumnValue;
             set
             {
-                if (delegateColumnValue != value)
+                if (_delegateColumnValue != value)
                 {
-                    delegateColumnValue = value;
+                    _delegateColumnValue = value;
                     OnPropertyChanged(nameof(DelegateColumnValue));
                 }
             }

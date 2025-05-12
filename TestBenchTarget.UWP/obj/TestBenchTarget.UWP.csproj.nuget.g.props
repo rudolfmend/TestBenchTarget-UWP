@@ -17,12 +17,11 @@
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)microsoft.windows.sdk.buildtools.msix\1.2.20250107.1\build\Microsoft.Windows.SDK.BuildTools.MSIX.props" Condition="Exists('$(NuGetPackageRoot)microsoft.windows.sdk.buildtools.msix\1.2.20250107.1\build\Microsoft.Windows.SDK.BuildTools.MSIX.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.windows.sdk.buildtools\10.0.22621.3233\buildTransitive\Microsoft.Windows.SDK.BuildTools.props" Condition="Exists('$(NuGetPackageRoot)microsoft.windows.sdk.buildtools\10.0.22621.3233\buildTransitive\Microsoft.Windows.SDK.BuildTools.props')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.net.illink.tasks\9.0.4\build\Microsoft.NET.ILLink.Tasks.props" Condition="Exists('$(NuGetPackageRoot)microsoft.net.illink.tasks\9.0.4\build\Microsoft.NET.ILLink.Tasks.props')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.dotnet.ilcompiler\9.0.4\build\Microsoft.DotNet.ILCompiler.props" Condition="Exists('$(NuGetPackageRoot)microsoft.dotnet.ilcompiler\9.0.4\build\Microsoft.DotNet.ILCompiler.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.ui.xaml\2.8.7\buildTransitive\Microsoft.UI.Xaml.props" Condition="Exists('$(NuGetPackageRoot)microsoft.ui.xaml\2.8.7\buildTransitive\Microsoft.UI.Xaml.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgMicrosoft_Windows_SDK_BuildTools_MSIX Condition=" '$(PkgMicrosoft_Windows_SDK_BuildTools_MSIX)' == '' ">C:\Users\rudol\.nuget\packages\microsoft.windows.sdk.buildtools.msix\1.2.20250107.1</PkgMicrosoft_Windows_SDK_BuildTools_MSIX>
-    <PkgMicrosoft_NET_ILLink_Tasks Condition=" '$(PkgMicrosoft_NET_ILLink_Tasks)' == '' ">C:\Users\rudol\.nuget\packages\microsoft.net.illink.tasks\9.0.4</PkgMicrosoft_NET_ILLink_Tasks>
-    <PkgMicrosoft_DotNet_ILCompiler Condition=" '$(PkgMicrosoft_DotNet_ILCompiler)' == '' ">C:\Users\rudol\.nuget\packages\microsoft.dotnet.ilcompiler\9.0.4</PkgMicrosoft_DotNet_ILCompiler>
+    <PkgMicrosoft_Web_WebView2 Condition=" '$(PkgMicrosoft_Web_WebView2)' == '' ">C:\Users\rudol\.nuget\packages\microsoft.web.webview2\1.0.2849.39</PkgMicrosoft_Web_WebView2>
+    <PkgMicrosoft_UI_Xaml Condition=" '$(PkgMicrosoft_UI_Xaml)' == '' ">C:\Users\rudol\.nuget\packages\microsoft.ui.xaml\2.8.7</PkgMicrosoft_UI_Xaml>
   </PropertyGroup>
 </Project>

@@ -4,48 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:models="using:TestBenchTarget.UWP.Models"
-    xmlns:local="using:TestBenchTarget.UWP"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <Page.Resources>
-
-        <DataTemplate x:Key="ItemTemplate"                             >
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="120"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="80"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Text="{Binding DateColumnValue, Converter={StaticResource DateConverter}}" 
-                   Style="{StaticResource CellTextBlockStyle}"
-                   Grid.Column="0"/>
-                <TextBlock Text="{Binding ProcedureColumnValue}" 
-                   Style="{StaticResource CellTextBlockStyle}"
-                   Grid.Column="1"/>
-                <TextBlock Text="{Binding PointsColumnValue}" 
-                   Style="{StaticResource CellTextBlockStyle}"
-                   Grid.Column="2"/>
-                <TextBlock Text="{Binding DelegateColumnValue}" 
-                   Style="{StaticResource CellTextBlockStyle}"
-                   Grid.Column="3"/>
-            </Grid>
-        </DataTemplate>
-        
-        <local:DateFormatConverter x:Key="DateConverter"/>
-
-        <Style x:Key="HeaderTextBlockStyle" TargetType="TextBlock">
-            <Setter Property="FontWeight" Value="Bold" />
-            <Setter Property="Margin" Value="5" />
-        </Style>
-
-        <Style x:Key="CellTextBlockStyle" TargetType="TextBlock">
-            <Setter Property="Margin" Value="5" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-        </Style>
-    </Page.Resources>
 
     <Grid Padding="20">
         <Grid.RowDefinitions>
@@ -60,14 +20,22 @@
         <!-- Hlavička -->
         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
             <TextBlock Text="TestBench Target - " FontSize="24" VerticalAlignment="Center"/>
-            <TextBlock x:ConnectionId='15' x:Name="TimeDisplay" FontSize="24" VerticalAlignment="Center"/>
+            <TextBlock x:ConnectionId='9' x:Name="TimeDisplay" FontSize="24" VerticalAlignment="Center" Text="00:00:00"/>
         </StackPanel>
 
         <!-- Hlavná tabuľka -->
-        <ListView x:ConnectionId='4' x:Name="MainListView"
-                  Grid.Row="1" Grid.Column="0" 
-                  Margin="0,0,20,0">
-            <ListView.HeaderTemplate>
+        <ListView x:ConnectionId='2' x:Name="MainListView"
+          Grid.Row="1" Grid.Column="0" 
+          Margin="0,0,20,0"
+          ItemsSource="{Binding DataItems}"
+          SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+          CanDragItems="False"
+          IsItemClickEnabled="False"
+          SelectionMode="Single"
+                                        
+                                                          >
+
+        <ListView.HeaderTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -76,13 +44,33 @@
                             <ColumnDefinition Width="80"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="Date" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="0"/>
-                        <TextBlock Text="Procedure" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1"/>
-                        <TextBlock Text="Points" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="2"/>
-                        <TextBlock Text="Delegate" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="3"/>
+                        <TextBlock Text="Date" FontWeight="Bold" Margin="5" Grid.Column="0"/>
+                        <TextBlock Text="Procedure" FontWeight="Bold" Margin="5" Grid.Column="1"/>
+                        <TextBlock Text="Points" FontWeight="Bold" Margin="5" Grid.Column="2"/>
+                        <TextBlock Text="Delegate" FontWeight="Bold" Margin="5" Grid.Column="3"/>
                     </Grid>
                 </DataTemplate>
             </ListView.HeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding DateColumnValue, Converter={StaticResource DateConverter}}" 
+                            Margin="5" VerticalAlignment="Center" Grid.Column="0"/>
+                        <TextBlock Text="{Binding ProcedureColumnValue}" 
+                            Margin="5" VerticalAlignment="Center" Grid.Column="1"/>
+                        <TextBlock Text="{Binding PointsColumnValue}" 
+                            Margin="5" VerticalAlignment="Center" Grid.Column="2"/>
+                        <TextBlock Text="{Binding DelegateColumnValue}" 
+                            Margin="5" VerticalAlignment="Center" Grid.Column="3"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
 
         <!-- Pravý panel s ovládaním -->
@@ -92,47 +80,54 @@
 
             <!-- Formulárové polia -->
             <TextBlock Text="Date" Margin="0,20,0,5"/>
-            <DatePicker x:ConnectionId='5' x:Name="DateSelector" 
-                        HorizontalAlignment="Stretch"/>
+            <ComboBox x:ConnectionId='3' x:Name="DateSelector" 
+                      PlaceholderText="Select date"
+                      HorizontalAlignment="Stretch"
+                      SelectedItem="{Binding SelectedDateString, Mode=TwoWay}"/>
 
             <TextBlock Text="Procedure" Margin="0,20,0,5"/>
-            <TextBox x:ConnectionId='6' x:Name="ProcedureInput"
+            <TextBox x:ConnectionId='4' x:Name="ProcedureInput"
+                     Text="{Binding ProcedureText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      PlaceholderText="Enter procedure"
                      Margin="0,0,0,10"/>
 
             <TextBlock Text="Points" Margin="0,10,0,5"/>
-            <TextBox x:ConnectionId='7' x:Name="PointsInput"
+            <TextBox x:ConnectionId='5' x:Name="PointsInput"
+                     Text="{Binding PointsText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      PlaceholderText="0"
-                     Margin="0,0,0,10"/>
+                     Margin="0,0,0,10"
+                                                          
+                                                      />
 
             <TextBlock Text="Delegate" Margin="0,10,0,5"/>
-            <TextBox x:ConnectionId='8' x:Name="DelegateInput"
+            <TextBox x:ConnectionId='6' x:Name="DelegateInput"
+                     Text="{Binding DelegateText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      PlaceholderText="Enter delegate"
                      Margin="0,0,0,10"/>
 
             <!-- Tlačidlá -->
-            <Button x:ConnectionId='9' x:Name="AddButton" 
-                    Content="Add to table" 
+            <Button Content="Add to table" 
+                    Command="{Binding AddCommand}"
                     HorizontalAlignment="Stretch"
                     Margin="0,20,0,10"/>
 
-            <Button x:ConnectionId='10' x:Name="LoadButton"
-                    Content="Load data" 
+            <Button Content="Load data" 
+                    Command="{Binding LoadCommand}"
                     HorizontalAlignment="Stretch"
                     Margin="0,10,0,10"/>
 
-            <Button x:ConnectionId='11' x:Name="SaveButton"
-                    Content="Save data to file" 
+            <Button Content="Save data to file" 
+                    Command="{Binding SaveCommand}"
                     HorizontalAlignment="Stretch"
                     Margin="0,10,0,10"/>
 
-            <Button x:ConnectionId='12' x:Name="DeleteButton"
-                    Content="Delete data" 
+            <Button Content="Delete data" 
+                    Command="{Binding DeleteCommand}"
                     HorizontalAlignment="Stretch"
                     Margin="0,10,0,10"/>
 
-            <Button x:ConnectionId='13' x:Name="OpenFolderButton"
-                    Content="Open folder" 
+            <Button Content="Open folder" 
+                    Command="{Binding OpenFolderCommand}"
                     HorizontalAlignment="Stretch"
                     Margin="0,10,0,10"/>
         </StackPanel>

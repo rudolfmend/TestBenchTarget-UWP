@@ -3,5 +3,7 @@
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)microsoft.windows.sdk.buildtools.msix\1.2.20250107.1\build\Microsoft.Windows.SDK.BuildTools.MSIX.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.windows.sdk.buildtools.msix\1.2.20250107.1\build\Microsoft.Windows.SDK.BuildTools.MSIX.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.windows.sdk.buildtools\10.0.22621.3233\buildTransitive\Microsoft.Windows.SDK.BuildTools.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.windows.sdk.buildtools\10.0.22621.3233\buildTransitive\Microsoft.Windows.SDK.BuildTools.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.web.webview2\1.0.2849.39\buildTransitive\Microsoft.Web.WebView2.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.web.webview2\1.0.2849.39\buildTransitive\Microsoft.Web.WebView2.targets')" />
+    <Import Project="$(NuGetPackageRoot)communitytoolkit.mvvm\8.4.0\buildTransitive\CommunityToolkit.Mvvm.targets" Condition="Exists('$(NuGetPackageRoot)communitytoolkit.mvvm\8.4.0\buildTransitive\CommunityToolkit.Mvvm.targets')" />
   </ImportGroup>
 </Project>

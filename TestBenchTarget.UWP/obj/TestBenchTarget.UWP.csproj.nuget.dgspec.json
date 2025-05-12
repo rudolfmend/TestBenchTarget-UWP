@@ -52,17 +52,13 @@
         "net9.0-windows10.0.26100": {
           "targetAlias": "net9.0-windows10.0.26100.0",
           "dependencies": {
-            "Microsoft.DotNet.ILCompiler": {
-              "suppressParent": "All",
+            "CommunityToolkit.Mvvm": {
               "target": "Package",
-              "version": "[9.0.4, )",
-              "autoReferenced": true
+              "version": "[8.4.0, )"
             },
-            "Microsoft.NET.ILLink.Tasks": {
-              "suppressParent": "All",
+            "Microsoft.UI.Xaml": {
               "target": "Package",
-              "version": "[9.0.4, )",
-              "autoReferenced": true
+              "version": "[2.8.7, )"
             },
             "Microsoft.Windows.SDK.BuildTools": {
               "include": "Build",
@@ -133,10 +129,6 @@
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-              "version": "[9.0.4, 9.0.4]"
-            },
-            {
-              "name": "runtime.win-x64.Microsoft.DotNet.ILCompiler",
               "version": "[9.0.4, 9.0.4]"
             }
           ],

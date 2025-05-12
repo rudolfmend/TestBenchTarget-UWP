@@ -127,6 +127,18 @@ namespace TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo
                 {
                     xamlType = CreateXamlType(typeIndex);
                 }
+                var userXamlType = xamlType as global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType;
+                if(xamlType == null || (userXamlType != null && userXamlType.IsReturnTypeStub && !userXamlType.IsLocalType))
+                {
+                    global::Windows.UI.Xaml.Markup.IXamlType libXamlType = CheckOtherMetadataProvidersForType(type);
+                    if (libXamlType != null)
+                    {
+                        if(libXamlType.IsConstructible || xamlType == null)
+                        {
+                            xamlType = libXamlType;
+                        }
+                    }
+                }
                 if (xamlType != null)
                 {
                     _xamlTypeCacheByName.Add(xamlType.FullName, xamlType);
@@ -153,6 +165,18 @@ namespace TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo
                 if(typeIndex != -1)
                 {
                     xamlType = CreateXamlType(typeIndex);
+                }
+                var userXamlType = xamlType as global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType;
+                if(xamlType == null || (userXamlType != null && userXamlType.IsReturnTypeStub && !userXamlType.IsLocalType))
+                {
+                    global::Windows.UI.Xaml.Markup.IXamlType libXamlType = CheckOtherMetadataProvidersForName(typeName);
+                    if (libXamlType != null)
+                    {
+                        if(libXamlType.IsConstructible || xamlType == null)
+                        {
+                            xamlType = libXamlType;
+                        }
+                    }
                 }
                 if (xamlType != null)
                 {
@@ -199,21 +223,49 @@ namespace TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[6];
-            _typeNameTable[0] = "TestBenchTarget.UWP.DateFormatConverter";
-            _typeNameTable[1] = "Object";
-            _typeNameTable[2] = "TestBenchTarget.UWP.MainPage";
-            _typeNameTable[3] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[4] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[5] = "Windows.UI.Xaml.Controls.TreeViewNode";
+            _typeNameTable = new string[20];
+            _typeNameTable[0] = "Microsoft.UI.Xaml.Controls.XamlControlsResources";
+            _typeNameTable[1] = "Windows.UI.Xaml.ResourceDictionary";
+            _typeNameTable[2] = "Object";
+            _typeNameTable[3] = "Microsoft.UI.Xaml.Controls.ControlsResourcesVersion";
+            _typeNameTable[4] = "System.Enum";
+            _typeNameTable[5] = "System.ValueType";
+            _typeNameTable[6] = "Boolean";
+            _typeNameTable[7] = "Microsoft.UI.Xaml.Controls.StylesVersion";
+            _typeNameTable[8] = "TestBenchTarget.UWP.DateFormatConverter";
+            _typeNameTable[9] = "TestBenchTarget.UWP.MainPage";
+            _typeNameTable[10] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[11] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[12] = "TestBenchTarget.UWP.StartPage";
+            _typeNameTable[13] = "Microsoft.UI.Xaml.Controls.IconSource";
+            _typeNameTable[14] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[15] = "Windows.UI.Xaml.Media.Brush";
+            _typeNameTable[16] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
+            _typeNameTable[17] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
+            _typeNameTable[18] = "Int32";
+            _typeNameTable[19] = "Windows.UI.Xaml.Controls.TreeViewNode";
 
-            _typeTable = new global::System.Type[6];
-            _typeTable[0] = typeof(global::TestBenchTarget.UWP.DateFormatConverter);
-            _typeTable[1] = typeof(global::System.Object);
-            _typeTable[2] = typeof(global::TestBenchTarget.UWP.MainPage);
-            _typeTable[3] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[4] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[5] = typeof(global::Windows.UI.Xaml.Controls.TreeViewNode);
+            _typeTable = new global::System.Type[20];
+            _typeTable[0] = typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources);
+            _typeTable[1] = typeof(global::Windows.UI.Xaml.ResourceDictionary);
+            _typeTable[2] = typeof(global::System.Object);
+            _typeTable[3] = typeof(global::Microsoft.UI.Xaml.Controls.ControlsResourcesVersion);
+            _typeTable[4] = typeof(global::System.Enum);
+            _typeTable[5] = typeof(global::System.ValueType);
+            _typeTable[6] = typeof(global::System.Boolean);
+            _typeTable[7] = typeof(global::Microsoft.UI.Xaml.Controls.StylesVersion);
+            _typeTable[8] = typeof(global::TestBenchTarget.UWP.DateFormatConverter);
+            _typeTable[9] = typeof(global::TestBenchTarget.UWP.MainPage);
+            _typeTable[10] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[11] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[12] = typeof(global::TestBenchTarget.UWP.StartPage);
+            _typeTable[13] = typeof(global::Microsoft.UI.Xaml.Controls.IconSource);
+            _typeTable[14] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[15] = typeof(global::Windows.UI.Xaml.Media.Brush);
+            _typeTable[16] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
+            _typeTable[17] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
+            _typeTable[18] = typeof(global::System.Int32);
+            _typeTable[19] = typeof(global::Windows.UI.Xaml.Controls.TreeViewNode);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -248,10 +300,26 @@ namespace TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_DateFormatConverter() { return new global::TestBenchTarget.UWP.DateFormatConverter(); }
-        private object Activate_2_MainPage() { return new global::TestBenchTarget.UWP.MainPage(); }
+        private object Activate_0_XamlControlsResources() { return new global::Microsoft.UI.Xaml.Controls.XamlControlsResources(); }
+        private object Activate_8_DateFormatConverter() { return new global::TestBenchTarget.UWP.DateFormatConverter(); }
+        private object Activate_9_MainPage() { return new global::TestBenchTarget.UWP.MainPage(); }
+        private object Activate_12_StartPage() { return new global::TestBenchTarget.UWP.StartPage(); }
+        private object Activate_16_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
 
 
+        private void MapAdd_0_XamlControlsResources(object instance, object key, object item)
+        {
+            var collection = (global::System.Collections.Generic.IDictionary<global::System.Object, global::System.Object>)instance;
+            var newKey = (global::System.Object)key;
+            var newItem = (global::System.Object)item;
+            collection.Add(newKey, newItem);
+        }
+        private void VectorAdd_17_IList(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::Microsoft.UI.Xaml.Controls.TreeViewNode>)instance;
+            var newItem = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)item;
+            collection.Add(newItem);
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -263,45 +331,356 @@ namespace TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  TestBenchTarget.UWP.DateFormatConverter
+            case 0:   //  Microsoft.UI.Xaml.Controls.XamlControlsResources
+                userType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.ResourceDictionary"));
+                userType.Activator = Activate_0_XamlControlsResources;
+                userType.DictionaryAdd = MapAdd_0_XamlControlsResources;
+                userType.AddMemberName("ControlsResourcesVersion");
+                userType.AddMemberName("UseCompactResources");
+                userType.AddMemberName("Version");
+                xamlType = userType;
+                break;
+
+            case 1:   //  Windows.UI.Xaml.ResourceDictionary
+                xamlType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 2:   //  Object
+                xamlType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 3:   //  Microsoft.UI.Xaml.Controls.ControlsResourcesVersion
+                userType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("Version1", global::Microsoft.UI.Xaml.Controls.ControlsResourcesVersion.Version1);
+                userType.AddEnumValue("Version2", global::Microsoft.UI.Xaml.Controls.ControlsResourcesVersion.Version2);
+                xamlType = userType;
+                break;
+
+            case 4:   //  System.Enum
+                userType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                xamlType = userType;
+                break;
+
+            case 5:   //  System.ValueType
                 userType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_0_DateFormatConverter;
+                xamlType = userType;
+                break;
+
+            case 6:   //  Boolean
+                xamlType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 7:   //  Microsoft.UI.Xaml.Controls.StylesVersion
+                userType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("Latest", global::Microsoft.UI.Xaml.Controls.StylesVersion.Latest);
+                userType.AddEnumValue("WinUI_2dot5", global::Microsoft.UI.Xaml.Controls.StylesVersion.WinUI_2dot5);
+                xamlType = userType;
+                break;
+
+            case 8:   //  TestBenchTarget.UWP.DateFormatConverter
+                userType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_8_DateFormatConverter;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 1:   //  Object
-                xamlType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 2:   //  TestBenchTarget.UWP.MainPage
+            case 9:   //  TestBenchTarget.UWP.MainPage
                 userType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_2_MainPage;
+                userType.Activator = Activate_9_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 3:   //  Windows.UI.Xaml.Controls.Page
+            case 10:   //  Windows.UI.Xaml.Controls.Page
                 xamlType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 4:   //  Windows.UI.Xaml.Controls.UserControl
+            case 11:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 5:   //  Windows.UI.Xaml.Controls.TreeViewNode
+            case 12:   //  TestBenchTarget.UWP.StartPage
+                userType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_12_StartPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 13:   //  Microsoft.UI.Xaml.Controls.IconSource
+                userType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
+                userType.AddMemberName("Foreground");
+                userType.SetIsBindable();
+                xamlType = userType;
+                break;
+
+            case 14:   //  Windows.UI.Xaml.DependencyObject
+                xamlType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 15:   //  Windows.UI.Xaml.Media.Brush
+                xamlType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 16:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
+                userType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
+                userType.Activator = Activate_16_TreeViewNode;
+                userType.AddMemberName("Children");
+                userType.AddMemberName("Content");
+                userType.AddMemberName("Depth");
+                userType.AddMemberName("HasChildren");
+                userType.AddMemberName("HasUnrealizedChildren");
+                userType.AddMemberName("IsExpanded");
+                userType.AddMemberName("Parent");
+                userType.SetIsBindable();
+                xamlType = userType;
+                break;
+
+            case 17:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
+                userType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                userType.CollectionAdd = VectorAdd_17_IList;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 18:   //  Int32
+                xamlType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 19:   //  Windows.UI.Xaml.Controls.TreeViewNode
                 xamlType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
             return xamlType;
         }
 
+        private global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider> _otherProviders;
+        private global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider> OtherProviders
+        {
+            get
+            {
+                if(_otherProviders == null)
+                {
+                    var otherProviders = new global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider>();
+                    global::Windows.UI.Xaml.Markup.IXamlMetadataProvider provider;
+                    provider = new global::Microsoft.UI.Xaml.XamlTypeInfo.XamlControlsXamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
+                    _otherProviders = otherProviders;
+                }
+                return _otherProviders;
+            }
+        }
 
+        private global::Windows.UI.Xaml.Markup.IXamlType CheckOtherMetadataProvidersForName(string typeName)
+        {
+            global::Windows.UI.Xaml.Markup.IXamlType xamlType = null;
+            global::Windows.UI.Xaml.Markup.IXamlType foundXamlType = null;
+            foreach(global::Windows.UI.Xaml.Markup.IXamlMetadataProvider xmp in OtherProviders)
+            {
+                xamlType = xmp.GetXamlType(typeName);
+                if(xamlType != null)
+                {
+                    if(xamlType.IsConstructible)    // not Constructible means it might be a Return Type Stub
+                    {
+                        return xamlType;
+                    }
+                    foundXamlType = xamlType;
+                }
+            }
+            return foundXamlType;
+        }
+
+        private global::Windows.UI.Xaml.Markup.IXamlType CheckOtherMetadataProvidersForType(global::System.Type type)
+        {
+            global::Windows.UI.Xaml.Markup.IXamlType xamlType = null;
+            global::Windows.UI.Xaml.Markup.IXamlType foundXamlType = null;
+            foreach(global::Windows.UI.Xaml.Markup.IXamlMetadataProvider xmp in OtherProviders)
+            {
+                xamlType = xmp.GetXamlType(type);
+                if(xamlType != null)
+                {
+                    if(xamlType.IsConstructible)    // not Constructible means it might be a Return Type Stub
+                    {
+                        return xamlType;
+                    }
+                    foundXamlType = xamlType;
+                }
+            }
+            return foundXamlType;
+        }
+
+        private object get_0_XamlControlsResources_ControlsResourcesVersion(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.XamlControlsResources)instance;
+            return that.ControlsResourcesVersion;
+        }
+        private void set_0_XamlControlsResources_ControlsResourcesVersion(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.XamlControlsResources)instance;
+            that.ControlsResourcesVersion = (global::Microsoft.UI.Xaml.Controls.ControlsResourcesVersion)Value;
+        }
+        private object get_1_XamlControlsResources_UseCompactResources(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.XamlControlsResources)instance;
+            return that.UseCompactResources;
+        }
+        private void set_1_XamlControlsResources_UseCompactResources(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.XamlControlsResources)instance;
+            that.UseCompactResources = (global::System.Boolean)Value;
+        }
+        private object get_2_XamlControlsResources_Version(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.XamlControlsResources)instance;
+            return that.Version;
+        }
+        private void set_2_XamlControlsResources_Version(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.XamlControlsResources)instance;
+            that.Version = (global::Microsoft.UI.Xaml.Controls.StylesVersion)Value;
+        }
+        private object get_3_IconSource_Foreground(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.IconSource)instance;
+            return that.Foreground;
+        }
+        private void set_3_IconSource_Foreground(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.IconSource)instance;
+            that.Foreground = (global::Windows.UI.Xaml.Media.Brush)Value;
+        }
+        private object get_4_TreeViewNode_Children(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
+            return that.Children;
+        }
+        private object get_5_TreeViewNode_Content(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
+            return that.Content;
+        }
+        private void set_5_TreeViewNode_Content(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
+            that.Content = (global::System.Object)Value;
+        }
+        private object get_6_TreeViewNode_Depth(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
+            return that.Depth;
+        }
+        private object get_7_TreeViewNode_HasChildren(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
+            return that.HasChildren;
+        }
+        private object get_8_TreeViewNode_HasUnrealizedChildren(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
+            return that.HasUnrealizedChildren;
+        }
+        private void set_8_TreeViewNode_HasUnrealizedChildren(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
+            that.HasUnrealizedChildren = (global::System.Boolean)Value;
+        }
+        private object get_9_TreeViewNode_IsExpanded(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
+            return that.IsExpanded;
+        }
+        private void set_9_TreeViewNode_IsExpanded(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
+            that.IsExpanded = (global::System.Boolean)Value;
+        }
+        private object get_10_TreeViewNode_Parent(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
+            return that.Parent;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
             global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember xamlMember = null;
-            // No Local Properties
+            global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType userType;
+
+            switch (longMemberName)
+            {
+            case "Microsoft.UI.Xaml.Controls.XamlControlsResources.ControlsResourcesVersion":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.XamlControlsResources");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "ControlsResourcesVersion", "Microsoft.UI.Xaml.Controls.ControlsResourcesVersion");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_0_XamlControlsResources_ControlsResourcesVersion;
+                xamlMember.Setter = set_0_XamlControlsResources_ControlsResourcesVersion;
+                break;
+            case "Microsoft.UI.Xaml.Controls.XamlControlsResources.UseCompactResources":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.XamlControlsResources");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "UseCompactResources", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_1_XamlControlsResources_UseCompactResources;
+                xamlMember.Setter = set_1_XamlControlsResources_UseCompactResources;
+                break;
+            case "Microsoft.UI.Xaml.Controls.XamlControlsResources.Version":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.XamlControlsResources");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "Version", "Microsoft.UI.Xaml.Controls.StylesVersion");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_2_XamlControlsResources_Version;
+                xamlMember.Setter = set_2_XamlControlsResources_Version;
+                break;
+            case "Microsoft.UI.Xaml.Controls.IconSource.Foreground":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.IconSource");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "Foreground", "Windows.UI.Xaml.Media.Brush");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_3_IconSource_Foreground;
+                xamlMember.Setter = set_3_IconSource_Foreground;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TreeViewNode.Children":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "Children", "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>");
+                xamlMember.Getter = get_4_TreeViewNode_Children;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Microsoft.UI.Xaml.Controls.TreeViewNode.Content":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "Content", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_5_TreeViewNode_Content;
+                xamlMember.Setter = set_5_TreeViewNode_Content;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TreeViewNode.Depth":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "Depth", "Int32");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_6_TreeViewNode_Depth;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasChildren":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "HasChildren", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_7_TreeViewNode_HasChildren;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasUnrealizedChildren":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "HasUnrealizedChildren", "Boolean");
+                xamlMember.Getter = get_8_TreeViewNode_HasUnrealizedChildren;
+                xamlMember.Setter = set_8_TreeViewNode_HasUnrealizedChildren;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TreeViewNode.IsExpanded":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "IsExpanded", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_9_TreeViewNode_IsExpanded;
+                xamlMember.Setter = set_9_TreeViewNode_IsExpanded;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TreeViewNode.Parent":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "Parent", "Microsoft.UI.Xaml.Controls.TreeViewNode");
+                xamlMember.Getter = get_10_TreeViewNode_Parent;
+                xamlMember.SetIsReadOnly();
+                break;
+            }
             return xamlMember;
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
@@ -12,6 +13,9 @@ namespace TestBenchTarget.UWP
     /// </summary>
     public sealed partial class App : Application
     {
+        // Zámok pre jednorázové spustenie aplikácie
+        private static Windows.ApplicationModel.AppInstance? _instance;
+
         /// <summary>
         /// Initializes the singleton application object. This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -23,6 +27,13 @@ namespace TestBenchTarget.UWP
 
             InitializeComponent();
             Suspending += OnSuspending;
+
+            // Nastavenie anglickej kultúry globálne
+            var culture = new CultureInfo("en-US");
+            CultureInfo.CurrentCulture = culture;
+            CultureInfo.CurrentUICulture = culture;
+            CultureInfo.DefaultThreadCurrentCulture = culture;
+            CultureInfo.DefaultThreadCurrentUICulture = culture;
         }
 
         /// <summary>
@@ -37,11 +48,17 @@ namespace TestBenchTarget.UWP
             e.Handled = true;
         }
 
-        /// <inheritdoc/>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
             try
             {
+                // Kontrola, či je aplikácia už spustená
+                if (!EnsureSingleInstance(e))
+                {
+                    // Aplikácia je už spustená, vrátime sa bez spustenia ďalšej inštancie
+                    return;
+                }
+
                 // Do not repeat app initialization when the Window already has content,
                 // just ensure that the window is active.
                 if (Window.Current.Content is not Frame rootFrame)
@@ -56,13 +73,13 @@ namespace TestBenchTarget.UWP
                     // Place the frame in the current Window
                     Window.Current.Content = rootFrame;
                 }
+
                 if (e.PrelaunchActivated == false)
                 {
                     if (rootFrame.Content == null)
                     {
-                        // When the navigation stack isn't restored navigate to the first page, configuring
-                        // the new page by passing required information as a navigation parameter.
-                        rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                        // Navigácia na úvodnú stránku (Form1) namiesto MainPage
+                        rootFrame.Navigate(typeof(StartPage), e.Arguments);
                     }
                     // Ensure the current window is active
                     Window.Current.Activate();
@@ -77,6 +94,40 @@ namespace TestBenchTarget.UWP
                     System.Diagnostics.Debugger.Break();
                 }
             }
+        }
+
+        private static bool EnsureSingleInstance(LaunchActivatedEventArgs args)
+        {
+            try
+            {
+                // Vytvorenie identifikátora pre túto inštanciu aplikácie
+                string uniqueId = "TestBenchTargetSingleInstance";
+
+                // Pokus o získanie primárnej inštancie
+                var instance = AppInstance.FindOrRegisterInstanceForKey(uniqueId);
+
+                // Skontrolujeme, či je táto inštancia primárna
+                if (instance != null && instance.IsCurrentInstance)
+                {
+                    // Toto je prvá inštancia aplikácie
+                    return true;
+                }
+                else if (instance != null)
+                {
+                    // Aplikácia je už spustená, aktivujeme ju
+                    instance.RedirectActivationTo();
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Logovanie akejkoľvek výnimky pri kontrole jednorázového spustenia
+                System.Diagnostics.Debug.WriteLine($"Exception during single instance check: {ex.Message}\nStackTrace: {ex.StackTrace}");
+            }
+
+            // Default to true (allow this instance to run) if we can't determine the status 
+            // or in case of an error, to avoid blocking the application from starting
+            return true;
         }
 
         /// <summary>
