@@ -1,13 +1,16 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using TestBenchTarget.UWP.Models;
 using TestBenchTarget.UWP.Services;
 using TestBenchTarget.UWP.ViewModels;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Data;                                                                                                       
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace TestBenchTarget.UWP
 {
@@ -19,8 +22,7 @@ namespace TestBenchTarget.UWP
         public MainPage()
         {
             this.InitializeComponent();
-
-            // Inicializácia časovača pre aktualizáciu času
+                        
             TimeDisplay.Text = DateTime.Now.ToString("HH:mm:ss");
 
             _timer = new DispatcherTimer();
@@ -34,16 +36,16 @@ namespace TestBenchTarget.UWP
             _viewModel = new MainViewModel(new DataService());
             this.DataContext = _viewModel;
 
-            // Inicializácia ComboBoxu pre výber dátumu
-            InitializeDateSelector();
+            InitializeDateSelector(); // - ComboBox for date selection initialization
 
-            // Registrácia udalosti pre vyčistenie zdrojov
-            this.Unloaded += MainPage_Unloaded;
+            this.Unloaded += MainPage_Unloaded; // - Unloading event registration (for cleaning resources)
+
+            _viewModel.DataSavedSuccessfully += ViewModel_DataSavedSuccessfully!; 
         }
 
         private void MainPage_Unloaded(object sender, RoutedEventArgs e)
         {
-            // Zastavenie a vyčistenie časovača
+            // Zastavenie a vyčistenie časovača // Stop and clean the timer
             if (_timer != null)
             {
                 _timer.Stop();
@@ -53,7 +55,7 @@ namespace TestBenchTarget.UWP
 
         private void InitializeDateSelector()
         {
-            // Naplnenie ComboBoxu dátumami
+            // Fill ComBoBox with dates // Naplnenie ComboBoxu dátumami
             var dateItems = new List<string>();
             for (int i = -367; i <= 367; i++)
             {
@@ -61,7 +63,54 @@ namespace TestBenchTarget.UWP
             }
 
             DateSelector.ItemsSource = dateItems;
-            DateSelector.SelectedIndex = 367; // Dnešný dátum je v strede
+            DateSelector.SelectedIndex = 367; // Today´s date is in the middle // Dnešný dátum je v strede
+        }
+
+        // Method for loading data from JSON file // Metóda pre uloženie (načítanie) dát zo JSON súboru 
+        private async void SaveDataToJsonFile()
+        {
+            try
+            {
+                string jsonFilePath = GetDefaultJsonFilePath();
+                bool result = await _viewModel.SaveDataAsync(jsonFilePath);
+                if (result)
+                {
+                    System.Diagnostics.Debug.WriteLine("Data saved successfully.");
+                }
+                else
+                {
+                    System.Diagnostics.Debug.WriteLine("Failed to save data.");
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error saving data: {ex.Message}");
+            }
+        }
+
+        /// <summary>
+        /// EN - Get the default path to the JSON file
+        /// SK - Získanie predvolenej cesty k JSON súboru 
+        /// </summary>
+        /// <returns></returns>
+        private string GetDefaultJsonFilePath()
+        {
+            string documentsFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            return Path.Combine(documentsFolder, "TestBenchTarget.json"); 
+        }
+
+        private async void ViewModel_DataSavedSuccessfully(object sender, EventArgs e)
+        {
+            // Display TeachingTip  
+            SaveSuccessNotification.IsOpen = true;
+
+            // Auto-close after 5 seconds  
+            await Task.Run(() =>
+            {
+                Task.Delay(5000).Wait();
+            });
+
+            SaveSuccessNotification.IsOpen = false;
         }
 
         private void PointsInput_TextChanged(object sender, TextChangedEventArgs e)
@@ -69,30 +118,31 @@ namespace TestBenchTarget.UWP
             TextBox? textBox = sender as TextBox;
             if (textBox == null) return;
 
-            // Zachovanie pozície kurzora
+            // Cursor position preservation // Zachovanie pozície kurzora
             int cursorPosition = textBox.SelectionStart;
 
-            // Odstránenie všetkých znakov okrem čísel
-            string cleanedText = "";
+            // Remove all characters except digits  // Odstránenie všetkých znakov okrem čísel
+            StringBuilder cleanedText = new StringBuilder();
             foreach (char c in textBox.Text)
             {
                 if (char.IsDigit(c))
                 {
-                    cleanedText += c;
+                    cleanedText.Append(c);
                 }
             }
 
-            // Ak je text prázdny, nastavíme 0
-            if (string.IsNullOrEmpty(cleanedText))
+            // If is text empty, set 0 // Ak je text prázdny, nastavíme 0
+            if (string.IsNullOrEmpty(cleanedText.ToString()))
             {
                 textBox.Text = "0";
-                cursorPosition = 1; // kurzor za číslom
+                cursorPosition = 1; // cursor after the number
             }
-            // Ak sa text zmenil, aktualizujeme ho
-            else if (cleanedText != textBox.Text)
+            // If text has changed, update it // Ak sa text zmenil, aktualizujeme ho
+            else if (cleanedText.ToString() != textBox.Text)
             {
-                textBox.Text = cleanedText;
-                // Obnovenie pozície kurzora
+                textBox.Text = cleanedText.ToString();
+
+                // Preserve cursor position // Obnovenie - Zachovanie pozície kurzora
                 if (cursorPosition <= textBox.Text.Length)
                 {
                     textBox.SelectionStart = cursorPosition;
@@ -132,7 +182,7 @@ namespace TestBenchTarget.UWP
             var item = MainListView.SelectedItem as DataItem;
             System.Diagnostics.Debug.WriteLine($"XAML Selection changed: {item != null}");
 
-            // Manuálna synchronizácia, ak by binding nefungoval
+            // Manual synchronization if binding does not work // Manuálna synchronizácia, ak by binding nefungoval
             if (item != null && _viewModel.SelectedItem != item)
             {
                 _viewModel.SelectedItem = item;
@@ -141,10 +191,10 @@ namespace TestBenchTarget.UWP
         }
     }
 
-    // Konverter pre formátovanie dátumu
+    // Converter for date formatting // Konverter pre formátovanie dátumu
     public sealed partial class DateFormatConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, string language)
+        public object? Convert(object value, Type targetType, object parameter, string language)
         {
             try
             {
@@ -152,7 +202,8 @@ namespace TestBenchTarget.UWP
                 {
                     return dateTime.ToString("dd.MM.yyyy");
                 }
-                return value?.ToString() ?? string.Empty;
+                //return value?.ToString() ?? string.Empty;
+                return value != null ? value.ToString() : string.Empty;
             }
             catch (Exception ex)
             {

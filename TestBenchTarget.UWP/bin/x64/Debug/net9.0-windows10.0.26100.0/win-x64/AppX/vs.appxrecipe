@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\bin\x64\Debug\net9.0-windows10.0.26100.0\win-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-05-12T20:22:48.395</Modified>
+      <Modified>2025-05-13T13:25:06.695</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\bin\x64\Debug\net9.0-windows10.0.26100.0\win-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2025-05-12T20:22:48.045</Modified>
+      <Modified>2025-05-13T13:25:06.299</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\bin\x64\Debug\net9.0-windows10.0.26100.0\win-x64\TestBenchTarget.UWP.runtimeconfig.json">
       <PackagePath>TestBenchTarget.UWP.runtimeconfig.json</PackagePath>
@@ -44,11 +44,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\bin\x64\Debug\net9.0-windows10.0.26100.0\win-x64\TestBenchTarget.UWP.dll">
       <PackagePath>TestBenchTarget.UWP.dll</PackagePath>
-      <Modified>2025-05-12T20:22:47.840</Modified>
+      <Modified>2025-05-13T13:25:06.128</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\obj\x64\Debug\net9.0-windows10.0.26100.0\win-x64\apphost.exe">
       <PackagePath>TestBenchTarget.UWP.exe</PackagePath>
-      <Modified>2025-05-12T20:22:47.851</Modified>
+      <Modified>2025-05-13T13:25:06.140</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rudol\.nuget\packages\microsoft.netcore.app.runtime.win-x64\9.0.4\runtimes\win-x64\lib\net9.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>

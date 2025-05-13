@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Newtonsoft.Json;
 using TestBenchTarget.UWP.Models;
 using TestBenchTarget.UWP.Services;
 using Windows.Storage;
@@ -155,14 +156,33 @@ namespace TestBenchTarget.UWP.ViewModels
         {
             try
             {
-                await _dataService.SaveDataAsync();
+                bool success = await _dataService.SaveDataAsync();
+                if (success)
+                {
+                    // Event for successful save - instead of showing a dialog - SaveSuccessTeachingTip
+                    // Namiesto zobrazenia dialógu vyvolajte event, ktorý XAML stránka zachytí
+                    // TeachingTip
+                    System.Diagnostics.Debug.WriteLine("Data saved successfully.");
+                    DataSavedSuccessfully?.Invoke(this, EventArgs.Empty);
+                }
+                else
+                {
+                    await ShowErrorDialog("Error saving data", "Failed to save data.");
+                }
             }
             catch (Exception ex)
             {
+                // if happens exception in SaveDataAsync run TeachingTip SaveErrorNotification
+                // Ak nastane výnimka v SaveDataAsync, spustí sa SaveErrorNotification
+                // TeachingTip
+
                 System.Diagnostics.Debug.WriteLine($"Error saving data: {ex.Message}");
                 await ShowErrorDialog("Error saving data", ex.Message);
             }
         }
+
+
+        public event EventHandler DataSavedSuccessfully;
 
         private void Delete()
         {
@@ -212,6 +232,25 @@ namespace TestBenchTarget.UWP.ViewModels
             };
 
             await errorDialog.ShowAsync();
+        }
+
+        //SaveDataAsync
+        public async Task<bool> SaveDataAsync(string filePath)
+        {
+            try
+            {
+                StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+                StorageFile file = await localFolder.CreateFileAsync(filePath,
+                                    CreationCollisionOption.ReplaceExisting);
+                string jsonData = JsonConvert.SerializeObject(DataItems, Formatting.Indented);
+                await FileIO.WriteTextAsync(file, jsonData);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error in SaveDataAsync: {ex.Message}");
+                return false;
+            }
         }
     }
 }

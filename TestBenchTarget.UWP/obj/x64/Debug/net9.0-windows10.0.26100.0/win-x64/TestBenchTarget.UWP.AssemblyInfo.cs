@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TestBenchTarget.UWP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+475289273053d3fca2cc918e2d9efed57eafe8e7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5386831322794ff5fb694efbd09ccd7bab4bbec2")]
 [assembly: System.Reflection.AssemblyProductAttribute("TestBenchTarget.UWP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TestBenchTarget.UWP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

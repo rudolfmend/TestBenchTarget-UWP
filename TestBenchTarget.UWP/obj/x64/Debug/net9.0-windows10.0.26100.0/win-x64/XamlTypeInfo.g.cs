@@ -223,7 +223,7 @@ namespace TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[20];
+            _typeNameTable = new string[32];
             _typeNameTable[0] = "Microsoft.UI.Xaml.Controls.XamlControlsResources";
             _typeNameTable[1] = "Windows.UI.Xaml.ResourceDictionary";
             _typeNameTable[2] = "Object";
@@ -233,19 +233,31 @@ namespace TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo
             _typeNameTable[6] = "Boolean";
             _typeNameTable[7] = "Microsoft.UI.Xaml.Controls.StylesVersion";
             _typeNameTable[8] = "TestBenchTarget.UWP.DateFormatConverter";
-            _typeNameTable[9] = "TestBenchTarget.UWP.MainPage";
-            _typeNameTable[10] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[11] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[12] = "TestBenchTarget.UWP.StartPage";
-            _typeNameTable[13] = "Microsoft.UI.Xaml.Controls.IconSource";
-            _typeNameTable[14] = "Windows.UI.Xaml.DependencyObject";
-            _typeNameTable[15] = "Windows.UI.Xaml.Media.Brush";
-            _typeNameTable[16] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
-            _typeNameTable[17] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
-            _typeNameTable[18] = "Int32";
-            _typeNameTable[19] = "Windows.UI.Xaml.Controls.TreeViewNode";
+            _typeNameTable[9] = "Microsoft.UI.Xaml.Controls.TeachingTip";
+            _typeNameTable[10] = "Windows.UI.Xaml.Controls.ContentControl";
+            _typeNameTable[11] = "String";
+            _typeNameTable[12] = "Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode";
+            _typeNameTable[13] = "System.Windows.Input.ICommand";
+            _typeNameTable[14] = "Windows.UI.Xaml.Style";
+            _typeNameTable[15] = "Windows.UI.Xaml.UIElement";
+            _typeNameTable[16] = "Microsoft.UI.Xaml.Controls.TeachingTipHeroContentPlacementMode";
+            _typeNameTable[17] = "Microsoft.UI.Xaml.Controls.IconSource";
+            _typeNameTable[18] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[19] = "Windows.UI.Xaml.Thickness";
+            _typeNameTable[20] = "Microsoft.UI.Xaml.Controls.TeachingTipTailVisibility";
+            _typeNameTable[21] = "Windows.UI.Xaml.FrameworkElement";
+            _typeNameTable[22] = "Microsoft.UI.Xaml.Controls.TeachingTipTemplateSettings";
+            _typeNameTable[23] = "TestBenchTarget.UWP.MainPage";
+            _typeNameTable[24] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[25] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[26] = "TestBenchTarget.UWP.StartPage";
+            _typeNameTable[27] = "Windows.UI.Xaml.Media.Brush";
+            _typeNameTable[28] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
+            _typeNameTable[29] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
+            _typeNameTable[30] = "Int32";
+            _typeNameTable[31] = "Windows.UI.Xaml.Controls.TreeViewNode";
 
-            _typeTable = new global::System.Type[20];
+            _typeTable = new global::System.Type[32];
             _typeTable[0] = typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.ResourceDictionary);
             _typeTable[2] = typeof(global::System.Object);
@@ -255,17 +267,29 @@ namespace TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo
             _typeTable[6] = typeof(global::System.Boolean);
             _typeTable[7] = typeof(global::Microsoft.UI.Xaml.Controls.StylesVersion);
             _typeTable[8] = typeof(global::TestBenchTarget.UWP.DateFormatConverter);
-            _typeTable[9] = typeof(global::TestBenchTarget.UWP.MainPage);
-            _typeTable[10] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[11] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[12] = typeof(global::TestBenchTarget.UWP.StartPage);
-            _typeTable[13] = typeof(global::Microsoft.UI.Xaml.Controls.IconSource);
-            _typeTable[14] = typeof(global::Windows.UI.Xaml.DependencyObject);
-            _typeTable[15] = typeof(global::Windows.UI.Xaml.Media.Brush);
-            _typeTable[16] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
-            _typeTable[17] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
-            _typeTable[18] = typeof(global::System.Int32);
-            _typeTable[19] = typeof(global::Windows.UI.Xaml.Controls.TreeViewNode);
+            _typeTable[9] = typeof(global::Microsoft.UI.Xaml.Controls.TeachingTip);
+            _typeTable[10] = typeof(global::Windows.UI.Xaml.Controls.ContentControl);
+            _typeTable[11] = typeof(global::System.String);
+            _typeTable[12] = typeof(global::Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode);
+            _typeTable[13] = typeof(global::System.Windows.Input.ICommand);
+            _typeTable[14] = typeof(global::Windows.UI.Xaml.Style);
+            _typeTable[15] = typeof(global::Windows.UI.Xaml.UIElement);
+            _typeTable[16] = typeof(global::Microsoft.UI.Xaml.Controls.TeachingTipHeroContentPlacementMode);
+            _typeTable[17] = typeof(global::Microsoft.UI.Xaml.Controls.IconSource);
+            _typeTable[18] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[19] = typeof(global::Windows.UI.Xaml.Thickness);
+            _typeTable[20] = typeof(global::Microsoft.UI.Xaml.Controls.TeachingTipTailVisibility);
+            _typeTable[21] = typeof(global::Windows.UI.Xaml.FrameworkElement);
+            _typeTable[22] = typeof(global::Microsoft.UI.Xaml.Controls.TeachingTipTemplateSettings);
+            _typeTable[23] = typeof(global::TestBenchTarget.UWP.MainPage);
+            _typeTable[24] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[25] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[26] = typeof(global::TestBenchTarget.UWP.StartPage);
+            _typeTable[27] = typeof(global::Windows.UI.Xaml.Media.Brush);
+            _typeTable[28] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
+            _typeTable[29] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
+            _typeTable[30] = typeof(global::System.Int32);
+            _typeTable[31] = typeof(global::Windows.UI.Xaml.Controls.TreeViewNode);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -302,9 +326,11 @@ namespace TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo
 
         private object Activate_0_XamlControlsResources() { return new global::Microsoft.UI.Xaml.Controls.XamlControlsResources(); }
         private object Activate_8_DateFormatConverter() { return new global::TestBenchTarget.UWP.DateFormatConverter(); }
-        private object Activate_9_MainPage() { return new global::TestBenchTarget.UWP.MainPage(); }
-        private object Activate_12_StartPage() { return new global::TestBenchTarget.UWP.StartPage(); }
-        private object Activate_16_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
+        private object Activate_9_TeachingTip() { return new global::Microsoft.UI.Xaml.Controls.TeachingTip(); }
+        private object Activate_22_TeachingTipTemplateSettings() { return new global::Microsoft.UI.Xaml.Controls.TeachingTipTemplateSettings(); }
+        private object Activate_23_MainPage() { return new global::TestBenchTarget.UWP.MainPage(); }
+        private object Activate_26_StartPage() { return new global::TestBenchTarget.UWP.StartPage(); }
+        private object Activate_28_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
 
 
         private void MapAdd_0_XamlControlsResources(object instance, object key, object item)
@@ -314,7 +340,7 @@ namespace TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo
             var newItem = (global::System.Object)item;
             collection.Add(newKey, newItem);
         }
-        private void VectorAdd_17_IList(object instance, object item)
+        private void VectorAdd_29_IList(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Microsoft.UI.Xaml.Controls.TreeViewNode>)instance;
             var newItem = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)item;
@@ -384,46 +410,144 @@ namespace TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 9:   //  TestBenchTarget.UWP.MainPage
-                userType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_9_MainPage;
-                userType.SetIsLocalType();
+            case 9:   //  Microsoft.UI.Xaml.Controls.TeachingTip
+                userType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.ContentControl"));
+                userType.Activator = Activate_9_TeachingTip;
+                userType.AddMemberName("Title");
+                userType.AddMemberName("Subtitle");
+                userType.AddMemberName("IsLightDismissEnabled");
+                userType.AddMemberName("PreferredPlacement");
+                userType.AddMemberName("CloseButtonContent");
+                userType.AddMemberName("ActionButtonCommand");
+                userType.AddMemberName("ActionButtonCommandParameter");
+                userType.AddMemberName("ActionButtonContent");
+                userType.AddMemberName("ActionButtonStyle");
+                userType.AddMemberName("CloseButtonCommand");
+                userType.AddMemberName("CloseButtonCommandParameter");
+                userType.AddMemberName("CloseButtonStyle");
+                userType.AddMemberName("HeroContent");
+                userType.AddMemberName("HeroContentPlacement");
+                userType.AddMemberName("IconSource");
+                userType.AddMemberName("IsOpen");
+                userType.AddMemberName("PlacementMargin");
+                userType.AddMemberName("ShouldConstrainToRootBounds");
+                userType.AddMemberName("TailVisibility");
+                userType.AddMemberName("Target");
+                userType.AddMemberName("TemplateSettings");
                 xamlType = userType;
                 break;
 
-            case 10:   //  Windows.UI.Xaml.Controls.Page
+            case 10:   //  Windows.UI.Xaml.Controls.ContentControl
                 xamlType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 11:   //  Windows.UI.Xaml.Controls.UserControl
+            case 11:   //  String
                 xamlType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 12:   //  TestBenchTarget.UWP.StartPage
-                userType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_12_StartPage;
-                userType.SetIsLocalType();
+            case 12:   //  Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode
+                userType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("Auto", global::Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode.Auto);
+                userType.AddEnumValue("Top", global::Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode.Top);
+                userType.AddEnumValue("Bottom", global::Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode.Bottom);
+                userType.AddEnumValue("Left", global::Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode.Left);
+                userType.AddEnumValue("Right", global::Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode.Right);
+                userType.AddEnumValue("TopRight", global::Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode.TopRight);
+                userType.AddEnumValue("TopLeft", global::Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode.TopLeft);
+                userType.AddEnumValue("BottomRight", global::Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode.BottomRight);
+                userType.AddEnumValue("BottomLeft", global::Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode.BottomLeft);
+                userType.AddEnumValue("LeftTop", global::Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode.LeftTop);
+                userType.AddEnumValue("LeftBottom", global::Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode.LeftBottom);
+                userType.AddEnumValue("RightTop", global::Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode.RightTop);
+                userType.AddEnumValue("RightBottom", global::Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode.RightBottom);
+                userType.AddEnumValue("Center", global::Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode.Center);
                 xamlType = userType;
                 break;
 
-            case 13:   //  Microsoft.UI.Xaml.Controls.IconSource
+            case 13:   //  System.Windows.Input.ICommand
+                userType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 14:   //  Windows.UI.Xaml.Style
+                xamlType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 15:   //  Windows.UI.Xaml.UIElement
+                xamlType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 16:   //  Microsoft.UI.Xaml.Controls.TeachingTipHeroContentPlacementMode
+                userType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("Auto", global::Microsoft.UI.Xaml.Controls.TeachingTipHeroContentPlacementMode.Auto);
+                userType.AddEnumValue("Top", global::Microsoft.UI.Xaml.Controls.TeachingTipHeroContentPlacementMode.Top);
+                userType.AddEnumValue("Bottom", global::Microsoft.UI.Xaml.Controls.TeachingTipHeroContentPlacementMode.Bottom);
+                xamlType = userType;
+                break;
+
+            case 17:   //  Microsoft.UI.Xaml.Controls.IconSource
                 userType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
                 userType.AddMemberName("Foreground");
                 userType.SetIsBindable();
                 xamlType = userType;
                 break;
 
-            case 14:   //  Windows.UI.Xaml.DependencyObject
+            case 18:   //  Windows.UI.Xaml.DependencyObject
                 xamlType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 15:   //  Windows.UI.Xaml.Media.Brush
+            case 19:   //  Windows.UI.Xaml.Thickness
                 xamlType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 16:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
+            case 20:   //  Microsoft.UI.Xaml.Controls.TeachingTipTailVisibility
+                userType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("Auto", global::Microsoft.UI.Xaml.Controls.TeachingTipTailVisibility.Auto);
+                userType.AddEnumValue("Visible", global::Microsoft.UI.Xaml.Controls.TeachingTipTailVisibility.Visible);
+                userType.AddEnumValue("Collapsed", global::Microsoft.UI.Xaml.Controls.TeachingTipTailVisibility.Collapsed);
+                xamlType = userType;
+                break;
+
+            case 21:   //  Windows.UI.Xaml.FrameworkElement
+                xamlType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 22:   //  Microsoft.UI.Xaml.Controls.TeachingTipTemplateSettings
                 userType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_16_TreeViewNode;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 23:   //  TestBenchTarget.UWP.MainPage
+                userType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_23_MainPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 24:   //  Windows.UI.Xaml.Controls.Page
+                xamlType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 25:   //  Windows.UI.Xaml.Controls.UserControl
+                xamlType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 26:   //  TestBenchTarget.UWP.StartPage
+                userType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_26_StartPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 27:   //  Windows.UI.Xaml.Media.Brush
+                xamlType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 28:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
+                userType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
+                userType.Activator = Activate_28_TreeViewNode;
                 userType.AddMemberName("Children");
                 userType.AddMemberName("Content");
                 userType.AddMemberName("Depth");
@@ -435,18 +559,18 @@ namespace TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 17:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
+            case 29:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
                 userType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.CollectionAdd = VectorAdd_17_IList;
+                userType.CollectionAdd = VectorAdd_29_IList;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 18:   //  Int32
+            case 30:   //  Int32
                 xamlType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 19:   //  Windows.UI.Xaml.Controls.TreeViewNode
+            case 31:   //  Windows.UI.Xaml.Controls.TreeViewNode
                 xamlType = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
@@ -538,62 +662,267 @@ namespace TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo
             var that = (global::Microsoft.UI.Xaml.Controls.XamlControlsResources)instance;
             that.Version = (global::Microsoft.UI.Xaml.Controls.StylesVersion)Value;
         }
-        private object get_3_IconSource_Foreground(object instance)
+        private object get_3_TeachingTip_Title(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            return that.Title;
+        }
+        private void set_3_TeachingTip_Title(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            that.Title = (global::System.String)Value;
+        }
+        private object get_4_TeachingTip_Subtitle(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            return that.Subtitle;
+        }
+        private void set_4_TeachingTip_Subtitle(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            that.Subtitle = (global::System.String)Value;
+        }
+        private object get_5_TeachingTip_IsLightDismissEnabled(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            return that.IsLightDismissEnabled;
+        }
+        private void set_5_TeachingTip_IsLightDismissEnabled(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            that.IsLightDismissEnabled = (global::System.Boolean)Value;
+        }
+        private object get_6_TeachingTip_PreferredPlacement(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            return that.PreferredPlacement;
+        }
+        private void set_6_TeachingTip_PreferredPlacement(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            that.PreferredPlacement = (global::Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode)Value;
+        }
+        private object get_7_TeachingTip_CloseButtonContent(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            return that.CloseButtonContent;
+        }
+        private void set_7_TeachingTip_CloseButtonContent(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            that.CloseButtonContent = (global::System.Object)Value;
+        }
+        private object get_8_TeachingTip_ActionButtonCommand(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            return that.ActionButtonCommand;
+        }
+        private void set_8_TeachingTip_ActionButtonCommand(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            that.ActionButtonCommand = (global::System.Windows.Input.ICommand)Value;
+        }
+        private object get_9_TeachingTip_ActionButtonCommandParameter(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            return that.ActionButtonCommandParameter;
+        }
+        private void set_9_TeachingTip_ActionButtonCommandParameter(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            that.ActionButtonCommandParameter = (global::System.Object)Value;
+        }
+        private object get_10_TeachingTip_ActionButtonContent(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            return that.ActionButtonContent;
+        }
+        private void set_10_TeachingTip_ActionButtonContent(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            that.ActionButtonContent = (global::System.Object)Value;
+        }
+        private object get_11_TeachingTip_ActionButtonStyle(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            return that.ActionButtonStyle;
+        }
+        private void set_11_TeachingTip_ActionButtonStyle(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            that.ActionButtonStyle = (global::Windows.UI.Xaml.Style)Value;
+        }
+        private object get_12_TeachingTip_CloseButtonCommand(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            return that.CloseButtonCommand;
+        }
+        private void set_12_TeachingTip_CloseButtonCommand(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            that.CloseButtonCommand = (global::System.Windows.Input.ICommand)Value;
+        }
+        private object get_13_TeachingTip_CloseButtonCommandParameter(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            return that.CloseButtonCommandParameter;
+        }
+        private void set_13_TeachingTip_CloseButtonCommandParameter(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            that.CloseButtonCommandParameter = (global::System.Object)Value;
+        }
+        private object get_14_TeachingTip_CloseButtonStyle(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            return that.CloseButtonStyle;
+        }
+        private void set_14_TeachingTip_CloseButtonStyle(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            that.CloseButtonStyle = (global::Windows.UI.Xaml.Style)Value;
+        }
+        private object get_15_TeachingTip_HeroContent(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            return that.HeroContent;
+        }
+        private void set_15_TeachingTip_HeroContent(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            that.HeroContent = (global::Windows.UI.Xaml.UIElement)Value;
+        }
+        private object get_16_TeachingTip_HeroContentPlacement(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            return that.HeroContentPlacement;
+        }
+        private void set_16_TeachingTip_HeroContentPlacement(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            that.HeroContentPlacement = (global::Microsoft.UI.Xaml.Controls.TeachingTipHeroContentPlacementMode)Value;
+        }
+        private object get_17_TeachingTip_IconSource(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            return that.IconSource;
+        }
+        private void set_17_TeachingTip_IconSource(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            that.IconSource = (global::Microsoft.UI.Xaml.Controls.IconSource)Value;
+        }
+        private object get_18_TeachingTip_IsOpen(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            return that.IsOpen;
+        }
+        private void set_18_TeachingTip_IsOpen(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            that.IsOpen = (global::System.Boolean)Value;
+        }
+        private object get_19_TeachingTip_PlacementMargin(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            return that.PlacementMargin;
+        }
+        private void set_19_TeachingTip_PlacementMargin(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            that.PlacementMargin = (global::Windows.UI.Xaml.Thickness)Value;
+        }
+        private object get_20_TeachingTip_ShouldConstrainToRootBounds(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            return that.ShouldConstrainToRootBounds;
+        }
+        private void set_20_TeachingTip_ShouldConstrainToRootBounds(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            that.ShouldConstrainToRootBounds = (global::System.Boolean)Value;
+        }
+        private object get_21_TeachingTip_TailVisibility(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            return that.TailVisibility;
+        }
+        private void set_21_TeachingTip_TailVisibility(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            that.TailVisibility = (global::Microsoft.UI.Xaml.Controls.TeachingTipTailVisibility)Value;
+        }
+        private object get_22_TeachingTip_Target(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            return that.Target;
+        }
+        private void set_22_TeachingTip_Target(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            that.Target = (global::Windows.UI.Xaml.FrameworkElement)Value;
+        }
+        private object get_23_TeachingTip_TemplateSettings(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.TeachingTip)instance;
+            return that.TemplateSettings;
+        }
+        private object get_24_IconSource_Foreground(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.IconSource)instance;
             return that.Foreground;
         }
-        private void set_3_IconSource_Foreground(object instance, object Value)
+        private void set_24_IconSource_Foreground(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.IconSource)instance;
             that.Foreground = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
-        private object get_4_TreeViewNode_Children(object instance)
+        private object get_25_TreeViewNode_Children(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Children;
         }
-        private object get_5_TreeViewNode_Content(object instance)
+        private object get_26_TreeViewNode_Content(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Content;
         }
-        private void set_5_TreeViewNode_Content(object instance, object Value)
+        private void set_26_TreeViewNode_Content(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.Content = (global::System.Object)Value;
         }
-        private object get_6_TreeViewNode_Depth(object instance)
+        private object get_27_TreeViewNode_Depth(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Depth;
         }
-        private object get_7_TreeViewNode_HasChildren(object instance)
+        private object get_28_TreeViewNode_HasChildren(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.HasChildren;
         }
-        private object get_8_TreeViewNode_HasUnrealizedChildren(object instance)
+        private object get_29_TreeViewNode_HasUnrealizedChildren(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.HasUnrealizedChildren;
         }
-        private void set_8_TreeViewNode_HasUnrealizedChildren(object instance, object Value)
+        private void set_29_TreeViewNode_HasUnrealizedChildren(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.HasUnrealizedChildren = (global::System.Boolean)Value;
         }
-        private object get_9_TreeViewNode_IsExpanded(object instance)
+        private object get_30_TreeViewNode_IsExpanded(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.IsExpanded;
         }
-        private void set_9_TreeViewNode_IsExpanded(object instance, object Value)
+        private void set_30_TreeViewNode_IsExpanded(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.IsExpanded = (global::System.Boolean)Value;
         }
-        private object get_10_TreeViewNode_Parent(object instance)
+        private object get_31_TreeViewNode_Parent(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Parent;
@@ -627,57 +956,204 @@ namespace TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo
                 xamlMember.Getter = get_2_XamlControlsResources_Version;
                 xamlMember.Setter = set_2_XamlControlsResources_Version;
                 break;
+            case "Microsoft.UI.Xaml.Controls.TeachingTip.Title":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "Title", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_3_TeachingTip_Title;
+                xamlMember.Setter = set_3_TeachingTip_Title;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TeachingTip.Subtitle":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "Subtitle", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_4_TeachingTip_Subtitle;
+                xamlMember.Setter = set_4_TeachingTip_Subtitle;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TeachingTip.IsLightDismissEnabled":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "IsLightDismissEnabled", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_5_TeachingTip_IsLightDismissEnabled;
+                xamlMember.Setter = set_5_TeachingTip_IsLightDismissEnabled;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TeachingTip.PreferredPlacement":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "PreferredPlacement", "Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_6_TeachingTip_PreferredPlacement;
+                xamlMember.Setter = set_6_TeachingTip_PreferredPlacement;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TeachingTip.CloseButtonContent":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "CloseButtonContent", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_7_TeachingTip_CloseButtonContent;
+                xamlMember.Setter = set_7_TeachingTip_CloseButtonContent;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TeachingTip.ActionButtonCommand":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "ActionButtonCommand", "System.Windows.Input.ICommand");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_8_TeachingTip_ActionButtonCommand;
+                xamlMember.Setter = set_8_TeachingTip_ActionButtonCommand;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TeachingTip.ActionButtonCommandParameter":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "ActionButtonCommandParameter", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_9_TeachingTip_ActionButtonCommandParameter;
+                xamlMember.Setter = set_9_TeachingTip_ActionButtonCommandParameter;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TeachingTip.ActionButtonContent":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "ActionButtonContent", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_10_TeachingTip_ActionButtonContent;
+                xamlMember.Setter = set_10_TeachingTip_ActionButtonContent;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TeachingTip.ActionButtonStyle":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "ActionButtonStyle", "Windows.UI.Xaml.Style");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_11_TeachingTip_ActionButtonStyle;
+                xamlMember.Setter = set_11_TeachingTip_ActionButtonStyle;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TeachingTip.CloseButtonCommand":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "CloseButtonCommand", "System.Windows.Input.ICommand");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_12_TeachingTip_CloseButtonCommand;
+                xamlMember.Setter = set_12_TeachingTip_CloseButtonCommand;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TeachingTip.CloseButtonCommandParameter":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "CloseButtonCommandParameter", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_13_TeachingTip_CloseButtonCommandParameter;
+                xamlMember.Setter = set_13_TeachingTip_CloseButtonCommandParameter;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TeachingTip.CloseButtonStyle":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "CloseButtonStyle", "Windows.UI.Xaml.Style");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_14_TeachingTip_CloseButtonStyle;
+                xamlMember.Setter = set_14_TeachingTip_CloseButtonStyle;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TeachingTip.HeroContent":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "HeroContent", "Windows.UI.Xaml.UIElement");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_15_TeachingTip_HeroContent;
+                xamlMember.Setter = set_15_TeachingTip_HeroContent;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TeachingTip.HeroContentPlacement":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "HeroContentPlacement", "Microsoft.UI.Xaml.Controls.TeachingTipHeroContentPlacementMode");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_16_TeachingTip_HeroContentPlacement;
+                xamlMember.Setter = set_16_TeachingTip_HeroContentPlacement;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TeachingTip.IconSource":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "IconSource", "Microsoft.UI.Xaml.Controls.IconSource");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_17_TeachingTip_IconSource;
+                xamlMember.Setter = set_17_TeachingTip_IconSource;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TeachingTip.IsOpen":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "IsOpen", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_18_TeachingTip_IsOpen;
+                xamlMember.Setter = set_18_TeachingTip_IsOpen;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TeachingTip.PlacementMargin":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "PlacementMargin", "Windows.UI.Xaml.Thickness");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_19_TeachingTip_PlacementMargin;
+                xamlMember.Setter = set_19_TeachingTip_PlacementMargin;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TeachingTip.ShouldConstrainToRootBounds":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "ShouldConstrainToRootBounds", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_20_TeachingTip_ShouldConstrainToRootBounds;
+                xamlMember.Setter = set_20_TeachingTip_ShouldConstrainToRootBounds;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TeachingTip.TailVisibility":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "TailVisibility", "Microsoft.UI.Xaml.Controls.TeachingTipTailVisibility");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_21_TeachingTip_TailVisibility;
+                xamlMember.Setter = set_21_TeachingTip_TailVisibility;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TeachingTip.Target":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "Target", "Windows.UI.Xaml.FrameworkElement");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_22_TeachingTip_Target;
+                xamlMember.Setter = set_22_TeachingTip_Target;
+                break;
+            case "Microsoft.UI.Xaml.Controls.TeachingTip.TemplateSettings":
+                userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TeachingTip");
+                xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "TemplateSettings", "Microsoft.UI.Xaml.Controls.TeachingTipTemplateSettings");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_23_TeachingTip_TemplateSettings;
+                xamlMember.SetIsReadOnly();
+                break;
             case "Microsoft.UI.Xaml.Controls.IconSource.Foreground":
                 userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.IconSource");
                 xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "Foreground", "Windows.UI.Xaml.Media.Brush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_3_IconSource_Foreground;
-                xamlMember.Setter = set_3_IconSource_Foreground;
+                xamlMember.Getter = get_24_IconSource_Foreground;
+                xamlMember.Setter = set_24_IconSource_Foreground;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Children":
                 userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "Children", "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>");
-                xamlMember.Getter = get_4_TreeViewNode_Children;
+                xamlMember.Getter = get_25_TreeViewNode_Children;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Content":
                 userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "Content", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_5_TreeViewNode_Content;
-                xamlMember.Setter = set_5_TreeViewNode_Content;
+                xamlMember.Getter = get_26_TreeViewNode_Content;
+                xamlMember.Setter = set_26_TreeViewNode_Content;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Depth":
                 userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "Depth", "Int32");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_6_TreeViewNode_Depth;
+                xamlMember.Getter = get_27_TreeViewNode_Depth;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasChildren":
                 userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "HasChildren", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_7_TreeViewNode_HasChildren;
+                xamlMember.Getter = get_28_TreeViewNode_HasChildren;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasUnrealizedChildren":
                 userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "HasUnrealizedChildren", "Boolean");
-                xamlMember.Getter = get_8_TreeViewNode_HasUnrealizedChildren;
-                xamlMember.Setter = set_8_TreeViewNode_HasUnrealizedChildren;
+                xamlMember.Getter = get_29_TreeViewNode_HasUnrealizedChildren;
+                xamlMember.Setter = set_29_TreeViewNode_HasUnrealizedChildren;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.IsExpanded":
                 userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "IsExpanded", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_9_TreeViewNode_IsExpanded;
-                xamlMember.Setter = set_9_TreeViewNode_IsExpanded;
+                xamlMember.Getter = get_30_TreeViewNode_IsExpanded;
+                xamlMember.Setter = set_30_TreeViewNode_IsExpanded;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Parent":
                 userType = (global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::TestBenchTarget.UWP.TestBenchTarget_UWP_XamlTypeInfo.XamlMember(this, "Parent", "Microsoft.UI.Xaml.Controls.TreeViewNode");
-                xamlMember.Getter = get_10_TreeViewNode_Parent;
+                xamlMember.Getter = get_31_TreeViewNode_Parent;
                 xamlMember.SetIsReadOnly();
                 break;
             }
