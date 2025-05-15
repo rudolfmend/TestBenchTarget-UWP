@@ -50,7 +50,7 @@ namespace TestBenchTarget.UWP
             // Vytvorenie dialógového okna About
             ContentDialog aboutDialog = new ContentDialog
             {
-                Title = "About TestBench Target",
+                //Title = "About TestBench Target",
                 PrimaryButtonText = "Close"
             };
 
@@ -76,9 +76,9 @@ namespace TestBenchTarget.UWP
                        "Main features:\n" +
                        "  - Small and fast application\n" +
                        "  - Tests opening a Windows directory\n" +
-                       "  - Provides a target app for trying out monitoring and testing tools\n" +
                        "  - Simulates adding defined items to a table\n" +
-                       "  - Simple chronological display of data in a table format\n\n" +
+                       "  - Simple chronological display of data in a table format\n" +
+                       "  - Provides a target app for trying out monitoring and testing tools\n\n" +
                        "Ideal for developers and testers who need a reliable target application when developing tools " +
                        "to monitor and test UI interactions.",
                 TextWrapping = TextWrapping.Wrap

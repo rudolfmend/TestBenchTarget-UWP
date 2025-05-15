@@ -27,38 +27,38 @@
        <!-- Main table -->  
        <ListView x:Name="MainListView"  
          Grid.Row="1" Grid.Column="0"   
-         Margin="0,0,20,0"  
+         Margin="0,0,50,0"  Padding="15"
          ItemsSource="{Binding DataItems}"  
          SelectedItem="{Binding SelectedItem, Mode=TwoWay}"  
          CanDragItems="False"  
-         IsItemClickEnabled="False"  
-         SelectionMode="Single"  
+         IsItemClickEnabled="False"  BorderBrush="Gray"
+         SelectionMode="Single"     BorderThickness="0" CornerRadius="7"
          KeyDown="MainListView_KeyDown"  
          SelectionChanged="MainListView_SelectionChanged">  
 
        <ListView.HeaderTemplate>  
-               <DataTemplate>  
-                   <Grid>  
+               <DataTemplate>
+                    <Grid Padding="25, 0, 25, 15" BorderThickness="0, 0, 0, 2.25" BorderBrush="Gray" >  
                        <Grid.ColumnDefinitions>  
-                           <ColumnDefinition Width="120"/>  
                            <ColumnDefinition Width="*"/>  
-                           <ColumnDefinition Width="80"/>  
+                           <ColumnDefinition Width="*"/>  
+                           <ColumnDefinition Width="*"/>  
                            <ColumnDefinition Width="*"/>  
                        </Grid.ColumnDefinitions>  
-                       <TextBlock Text="Date" FontWeight="Bold" Margin="5" Grid.Column="0"/>  
-                       <TextBlock Text="Procedure" FontWeight="Bold" Margin="5" Grid.Column="1"/>  
-                       <TextBlock Text="Points" FontWeight="Bold" Margin="5" Grid.Column="2"/>  
-                       <TextBlock Text="Delegate" FontWeight="Bold" Margin="5" Grid.Column="3"/>  
+                       <TextBlock Text="Date"       FontWeight="Bold" Margin="5" Grid.Column="0"/>  
+                       <TextBlock Text="Procedure"  FontWeight="Bold" Margin="5" Grid.Column="1"/>  
+                       <TextBlock Text="Points"     FontWeight="Bold" Margin="5" Grid.Column="2"/>  
+                       <TextBlock Text="Delegate"   FontWeight="Bold" Margin="5" Grid.Column="3"/>  
                    </Grid>  
                </DataTemplate>  
            </ListView.HeaderTemplate>  
            <ListView.ItemTemplate>  
-               <DataTemplate>  
-                   <Grid>  
+               <DataTemplate>
+                    <Grid Padding="15, 0, 10, 1" BorderThickness="0, 0, 0, 1" BorderBrush="Gray" >  
                        <Grid.ColumnDefinitions>  
-                           <ColumnDefinition Width="120"/>  
                            <ColumnDefinition Width="*"/>  
-                           <ColumnDefinition Width="80"/>  
+                           <ColumnDefinition Width="*"/>  
+                           <ColumnDefinition Width="*"/>  
                            <ColumnDefinition Width="*"/>  
                        </Grid.ColumnDefinitions>  
                        <TextBlock Text="{Binding DateColumnValue, Converter={StaticResource DateConverter}}"   

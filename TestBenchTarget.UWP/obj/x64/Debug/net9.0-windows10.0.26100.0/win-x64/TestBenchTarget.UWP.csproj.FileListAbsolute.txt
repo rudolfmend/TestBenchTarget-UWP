@@ -193,7 +193,6 @@ C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\bin\x64\Debu
 C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\bin\x64\Debug\net9.0-windows10.0.26100.0\win-x64\hostfxr.dll
 C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\bin\x64\Debug\net9.0-windows10.0.26100.0\win-x64\hostpolicy.dll
 C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\bin\x64\Debug\net9.0-windows10.0.26100.0\win-x64\mscordaccore.dll
-C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\bin\x64\Debug\net9.0-windows10.0.26100.0\win-x64\mscordaccore_amd64_amd64_9.0.425.16305.dll
 C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\bin\x64\Debug\net9.0-windows10.0.26100.0\win-x64\mscordbi.dll
 C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\bin\x64\Debug\net9.0-windows10.0.26100.0\win-x64\mscorrc.dll
 C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\bin\x64\Debug\net9.0-windows10.0.26100.0\win-x64\msquic.dll
@@ -244,3 +243,4 @@ C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\obj\x64\Debu
 C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\obj\x64\Debug\net9.0-windows10.0.26100.0\win-x64\MultipleQualifiersPerDimensionFound.txt
 C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\obj\x64\Debug\net9.0-windows10.0.26100.0\win-x64\TestBenchTarget.UWP.genpublishdeps.cache
 C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\obj\x64\Debug\net9.0-windows10.0.26100.0\win-x64\ProjectArchitectures.txt
+C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\bin\x64\Debug\net9.0-windows10.0.26100.0\win-x64\mscordaccore_amd64_amd64_9.0.525.21509.dll

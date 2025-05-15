@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{74A660A0-1620-4A8E-A698-E49959125532}|TestBenchTarget.UWP\\TestBenchTarget.UWP.csproj|solutionrelative:testbenchtarget.uwp\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{74A660A0-1620-4A8E-A698-E49959125532}|TestBenchTarget.UWP\\TestBenchTarget.UWP.csproj|c:\\users\\rudol\\source\\repos\\testbenchtarget.uwp\\testbenchtarget.uwp\\startpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74A660A0-1620-4A8E-A698-E49959125532}|TestBenchTarget.UWP\\TestBenchTarget.UWP.csproj|solutionrelative:testbenchtarget.uwp\\startpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{74A660A0-1620-4A8E-A698-E49959125532}|TestBenchTarget.UWP\\TestBenchTarget.UWP.csproj|c:\\users\\rudol\\source\\repos\\testbenchtarget.uwp\\testbenchtarget.uwp\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{74A660A0-1620-4A8E-A698-E49959125532}|TestBenchTarget.UWP\\TestBenchTarget.UWP.csproj|solutionrelative:testbenchtarget.uwp\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -29,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{74A660A0-1620-4A8E-A698-E49959125532}|TestBenchTarget.UWP\\TestBenchTarget.UWP.csproj|c:\\users\\rudol\\source\\repos\\testbenchtarget.uwp\\testbenchtarget.uwp\\models\\customobservablecollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{74A660A0-1620-4A8E-A698-E49959125532}|TestBenchTarget.UWP\\TestBenchTarget.UWP.csproj|solutionrelative:testbenchtarget.uwp\\models\\customobservablecollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74A660A0-1620-4A8E-A698-E49959125532}|TestBenchTarget.UWP\\TestBenchTarget.UWP.csproj|c:\\users\\rudol\\source\\repos\\testbenchtarget.uwp\\testbenchtarget.uwp\\startpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74A660A0-1620-4A8E-A698-E49959125532}|TestBenchTarget.UWP\\TestBenchTarget.UWP.csproj|solutionrelative:testbenchtarget.uwp\\startpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{74A660A0-1620-4A8E-A698-E49959125532}|TestBenchTarget.UWP\\TestBenchTarget.UWP.csproj|c:\\users\\rudol\\source\\repos\\testbenchtarget.uwp\\testbenchtarget.uwp\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -97,20 +97,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "StartPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\rudol\\source\\repos\\TestBenchTarget.UWP\\TestBenchTarget.UWP\\StartPage.xaml.cs",
               "RelativeDocumentMoniker": "TestBenchTarget.UWP\\StartPage.xaml.cs",
               "ToolTip": "C:\\Users\\rudol\\source\\repos\\TestBenchTarget.UWP\\TestBenchTarget.UWP\\StartPage.xaml.cs",
               "RelativeToolTip": "TestBenchTarget.UWP\\StartPage.xaml.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAowCYAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAACgAAAAAAAAAAAAwwCwAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-12T19:29:56.039Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "StartPage.xaml",
               "DocumentMoniker": "C:\\Users\\rudol\\source\\repos\\TestBenchTarget.UWP\\TestBenchTarget.UWP\\StartPage.xaml",
               "RelativeDocumentMoniker": "TestBenchTarget.UWP\\StartPage.xaml",
@@ -118,8 +118,7 @@
               "RelativeToolTip": "TestBenchTarget.UWP\\StartPage.xaml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-12T19:29:35.302Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-12T19:29:35.302Z"
             },
             {
               "$type": "Document",
@@ -156,12 +155,11 @@
               "RelativeToolTip": "TestBenchTarget.UWP\\App.xaml.cs",
               "ViewState": "AgIAACoAAAAAAAAAAAAowA0AAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T22:44:34.346Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-10T22:44:34.346Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "DataService.cs",
               "DocumentMoniker": "C:\\Users\\rudol\\source\\repos\\TestBenchTarget.UWP\\TestBenchTarget.UWP\\Services\\DataService.cs",
               "RelativeDocumentMoniker": "TestBenchTarget.UWP\\Services\\DataService.cs",
@@ -169,12 +167,11 @@
               "RelativeToolTip": "TestBenchTarget.UWP\\Services\\DataService.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAA1wCYAAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T22:52:00.331Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-10T22:52:00.331Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "CustomObservableCollection.cs",
               "DocumentMoniker": "C:\\Users\\rudol\\source\\repos\\TestBenchTarget.UWP\\TestBenchTarget.UWP\\Models\\CustomObservableCollection.cs",
               "RelativeDocumentMoniker": "TestBenchTarget.UWP\\Models\\CustomObservableCollection.cs",
@@ -182,12 +179,11 @@
               "RelativeToolTip": "TestBenchTarget.UWP\\Models\\CustomObservableCollection.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T22:50:57.803Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-10T22:50:57.803Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "DataItem.cs",
               "DocumentMoniker": "C:\\Users\\rudol\\source\\repos\\TestBenchTarget.UWP\\TestBenchTarget.UWP\\Models\\DataItem.cs",
               "RelativeDocumentMoniker": "TestBenchTarget.UWP\\Models\\DataItem.cs",
@@ -195,8 +191,7 @@
               "RelativeToolTip": "TestBenchTarget.UWP\\Models\\DataItem.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAAAEgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T22:47:13.334Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-10T22:47:13.334Z"
             },
             {
               "$type": "Document",
@@ -212,7 +207,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MainPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\rudol\\source\\repos\\TestBenchTarget.UWP\\TestBenchTarget.UWP\\MainPage.xaml.cs",
               "RelativeDocumentMoniker": "TestBenchTarget.UWP\\MainPage.xaml.cs",
@@ -220,8 +215,7 @@
               "RelativeToolTip": "TestBenchTarget.UWP\\MainPage.xaml.cs",
               "ViewState": "AgIAABQAAAAAAAAAAIAwwCsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T22:45:41.894Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-10T22:45:41.894Z"
             },
             {
               "$type": "Document",
@@ -231,14 +225,14 @@
               "RelativeDocumentMoniker": "TestBenchTarget.UWP\\MainPage.xaml",
               "ToolTip": "C:\\Users\\rudol\\source\\repos\\TestBenchTarget.UWP\\TestBenchTarget.UWP\\MainPage.xaml",
               "RelativeToolTip": "TestBenchTarget.UWP\\MainPage.xaml",
-              "ViewState": "AgIAADAAAAAAAAAAAAAAADoAAAA8AAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACgAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-05-10T22:45:39.991Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainViewModel.cs",
               "DocumentMoniker": "C:\\Users\\rudol\\source\\repos\\TestBenchTarget.UWP\\TestBenchTarget.UWP\\ViewModels\\MainViewModel.cs",
               "RelativeDocumentMoniker": "TestBenchTarget.UWP\\ViewModels\\MainViewModel.cs",
@@ -246,8 +240,7 @@
               "RelativeToolTip": "TestBenchTarget.UWP\\ViewModels\\MainViewModel.cs",
               "ViewState": "AgIAAJkAAAAAAAAAAIAwwK4AAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T23:07:02.593Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-10T23:07:02.593Z"
             }
           ]
         }
