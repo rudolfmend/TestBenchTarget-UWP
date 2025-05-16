@@ -20,8 +20,16 @@
        </Grid.ColumnDefinitions>  
 
        <!-- Header -->  
-       <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" Margin="20, 5, 50, 50">  
-           <TextBlock x:Name="TimeDisplay" FontSize="30" VerticalAlignment="Center" Text="00:00:00"/>  
+       <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" Margin="20, 5, 50, 50">
+
+            <TextBlock Text="Main Page - TestBench Target" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left"
+                       VariableSizedWrapGrid.ColumnSpan="1"
+                       Padding="20, 5"
+                       />
+            <!--<TextBlock x:Name="TimeDisplay" FontSize="30" VerticalAlignment="Center" Text="00:00:00"
+                       VariableSizedWrapGrid.ColumnSpan="0"
+                       Padding="20, 5"
+                       />-->  
        </StackPanel>  
 
        <!-- Main table -->  
@@ -44,7 +52,7 @@
                            <ColumnDefinition Width="*"/>  
                            <ColumnDefinition Width="*"/>  
                            <ColumnDefinition Width="*"/>  
-                       </Grid.ColumnDefinitions>  
+                       </Grid.ColumnDefinitions>
                        <TextBlock Text="Date"       FontWeight="Bold" Margin="5" Grid.Column="0"/>  
                        <TextBlock Text="Procedure"  FontWeight="Bold" Margin="5" Grid.Column="1"/>  
                        <TextBlock Text="Points"     FontWeight="Bold" Margin="5" Grid.Column="2"/>  
@@ -54,7 +62,7 @@
            </ListView.HeaderTemplate>  
            <ListView.ItemTemplate>  
                <DataTemplate>
-                    <Grid Padding="15, 0, 10, 1" BorderThickness="0, 0, 0, 1" BorderBrush="Gray" >  
+                    <Grid Padding="10, 10, 10, 1" BorderThickness="0, 0, 0, 1" BorderBrush="Gray" >  
                        <Grid.ColumnDefinitions>  
                            <ColumnDefinition Width="*"/>  
                            <ColumnDefinition Width="*"/>  
@@ -130,8 +138,18 @@
            <Button Content="Open folder"   
                    Command="{Binding OpenFolderCommand}"  
                    HorizontalAlignment="Stretch"  
-                   Margin="0,10,0,10"/>  
-       </StackPanel>  
+                   Margin="0,10,0,10"/>
+
+            <Button Content="Clear form"   
+                    Command="{Binding ClearFormCommand}"  
+                    HorizontalAlignment="Stretch"  
+                    Margin="0,10,0,10"/>
+
+            <Button Content="Clear list"   
+                    Command="{Binding ClearListCommand}"  
+                    HorizontalAlignment="Stretch"  
+                    Margin="0,10,0,10"/>
+        </StackPanel>  
 
    <muxc:TeachingTip  
        x:Name="SaveSuccessNotification"  
@@ -178,5 +196,13 @@
        CloseButtonContent="OK"  
        AutomationProperties.AutomationId="OpenFolderTeachingTip"/>
 
+   <muxc:TeachingTip
+       x:Name="ClearListSuccessNotification"  
+       Title="Success"  
+       Subtitle="The list has been cleared successfully"  
+       IsLightDismissEnabled="True"  
+       PreferredPlacement="Top"  
+       CloseButtonContent="OK"  
+       AutomationProperties.AutomationId="ClearListSuccessTeachingTip"/>
     </Grid>
 </Page>

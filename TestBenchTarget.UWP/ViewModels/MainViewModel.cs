@@ -8,6 +8,7 @@ using TestBenchTarget.UWP.Services;
 using Windows.Storage;
 using Windows.System;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
 
 namespace TestBenchTarget.UWP.ViewModels
 {
@@ -15,7 +16,7 @@ namespace TestBenchTarget.UWP.ViewModels
     {
         private readonly DataService _dataService;
 
-        // Manuálne implementované vlastnosti
+        // Properties // Vlastnosti
         private CustomObservableCollection<DataItem> _dataItems = new CustomObservableCollection<DataItem>();
         public CustomObservableCollection<DataItem> DataItems
         {
@@ -32,7 +33,7 @@ namespace TestBenchTarget.UWP.ViewModels
                 System.Diagnostics.Debug.WriteLine($"SelectedItem setter called, new value is null: {value == null}");
                 if (SetProperty(ref _selectedItem, value))
                 {
-                    // Notifikácia príkazu o možnej zmene stavu
+                    // Notification of command about possible state change // Notifikácia príkazu o možnej zmene stavu
                     DeleteCommand.NotifyCanExecuteChanged();
                     System.Diagnostics.Debug.WriteLine("NotifyCanExecuteChanged called on DeleteCommand");
                 }
@@ -67,28 +68,36 @@ namespace TestBenchTarget.UWP.ViewModels
             set => SetProperty(ref _delegateText, value);
         }
 
-        // Príkazy
+        // Events // Udalosti
+        public event EventHandler ListClearedSuccessfully; 
+
+
+        // Commands // Príkazy
         public IRelayCommand AddCommand { get; }
         public IRelayCommand LoadCommand { get; }
         public IRelayCommand SaveCommand { get; }
         public IRelayCommand DeleteCommand { get; }
         public IRelayCommand OpenFolderCommand { get; }
+        public IRelayCommand ClearFormCommand { get; }
+        public IRelayCommand ClearListCommand { get; } 
 
         public MainViewModel(DataService dataService)
         {
             _dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
 
-            // Použijeme DataList z DataService
+            // Loading data during initialization // Načítanie dát pri inicializácii 
             DataItems = _dataService.DataList;
 
-            // Inicializácia príkazov
+            // Initialization of commands
             AddCommand = new RelayCommand(Add);
             LoadCommand = new RelayCommand(LoadData);
             SaveCommand = new RelayCommand(SaveData);
             DeleteCommand = new RelayCommand(Delete, CanDelete);
             OpenFolderCommand = new RelayCommand(OpenFolder);
+            ClearFormCommand = new RelayCommand(ClearForm);
+            ClearListCommand = new RelayCommand(ClearList);
 
-            // Inicializácia dát
+            // Initialization of data loading
             _ = InitializeAsync();
         }
 
@@ -108,30 +117,32 @@ namespace TestBenchTarget.UWP.ViewModels
         {
             try
             {
-                // Skúsime konvertovať vybraný dátum
+                // Trying to parse the selected date // Skúsiť konvertovať vybraný dátum
                 if (!DateTime.TryParseExact(_selectedDateString, "dd.MM.yyyy", null,
                     System.Globalization.DateTimeStyles.None, out DateTime selectedDate))
                 {
                     selectedDate = DateTime.Now.Date;
                 }
 
-                // Vytvorenie nového DataItem z vstupných hodnôt
+                // Create new DataItem from input values // Vytvorenie nového DataItem z vstupných hodnôt
                 var newItem = new DataItem
                 {
                     DateColumnValue = selectedDate,
                     ProcedureColumnValue = ProcedureText,
-                    // Parse PointsText na int
+                    // Parse PointsText to integer
                     PointsColumnValue = string.IsNullOrEmpty(PointsText) ? 0 : int.Parse(PointsText),
                     DelegateColumnValue = DelegateText
                 };
 
-                // Pridanie položky do kolekcie
+                // Add new item to the collection // Pridanie položky do kolekcie
                 DataItems.Add(newItem);
 
-                // Vynulovanie vstupných polí
-                ProcedureText = string.Empty;
-                PointsText = "0";
-                DelegateText = string.Empty;
+                // Reset and clear input fields // Vynulovanie vstupných polí
+                //ProcedureText = string.Empty;
+                //PointsText = "0";
+                //DelegateText = string.Empty;
+
+                SelectedItem = newItem;
             }
             catch (Exception ex)
             {
@@ -250,6 +261,38 @@ namespace TestBenchTarget.UWP.ViewModels
             {
                 System.Diagnostics.Debug.WriteLine($"Error in SaveDataAsync: {ex.Message}");
                 return false;
+            }
+        }
+
+        private void ClearForm()
+        {
+            ProcedureText = string.Empty;
+            PointsText = "0";
+            DelegateText = string.Empty;
+
+            // SelectedDateString = DateTime.Now.ToString("dd.MM.yyyy"); // Today date set?
+        }
+
+        private async void ClearList()
+        {
+
+            ContentDialog confirmDialog = new ContentDialog
+            {
+                Title = "Confirm deletion",
+                Content = "Are you sure you want to clear the entire list? This action cannot be undone when data is not saved in JSON file.",
+                PrimaryButtonText = "Yes, clear list",
+                CloseButtonText = "Cancel"
+            };
+
+            ContentDialogResult result = await confirmDialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                DataItems.Clear(); // clear the colection of DataItems
+                SelectedItem = null; // set SelectedItem to null, now it is not selected
+                System.Diagnostics.Debug.WriteLine("List cleared");
+                DeleteCommand.NotifyCanExecuteChanged();
+                ListClearedSuccessfully?.Invoke(this, EventArgs.Empty);
             }
         }
     }

@@ -14,19 +14,21 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Horný panel -->
+        <!-- Top panel  -  Horný panel -->
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <TextBlock Text="TestBench Target - " FontSize="24" VerticalAlignment="Center"/>
-            <TextBlock x:Name="TimeDisplay" FontSize="24" VerticalAlignment="Center" Text="00:00:00"/>
+            <TextBlock Text="Start Page - TestBench Target" FontSize="16" VerticalAlignment="Center"
+                       Padding="20, 5"/>
         </StackPanel>
 
-        <!-- Stredná časť -->
-        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <!-- Middle part  -  Stredná časť -->
+        <StackPanel Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TextBlock x:Name="TimeDisplay" FontSize="32" VerticalAlignment="Top" Text="00:00:00"
+                       Padding="20, 5" HorizontalAlignment="Left" />
             <TextBlock x:Name="DateDisplay" Text="00.00.0000" 
-                       FontSize="24" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+                       FontSize="32" HorizontalAlignment="Left" Margin="0,0,0,20"/>
         </StackPanel>
 
-        <!-- Tlačidlo na spustenie aplikácie -->
+        <!-- OpenAppButton for Open a application -->
         <Button Grid.Row="2" x:Name="OpenAppButton" 
                 Content="Open Application" 
                 Click="OpenAppButton_Click"

@@ -11,6 +11,9 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Media.Animation;
+using Windows.UI.Xaml.Shapes;
 
 namespace TestBenchTarget.UWP
 {
@@ -18,19 +21,20 @@ namespace TestBenchTarget.UWP
     {
         private DispatcherTimer _timer;
         private MainViewModel _viewModel;
+        private CustomObservableCollection<DataItem> _dataItems = new CustomObservableCollection<DataItem>();
 
         public MainPage()
         {
             this.InitializeComponent();
                         
-            TimeDisplay.Text = DateTime.Now.ToString("HH:mm:ss");
+            //TimeDisplay.Text = DateTime.Now.ToString("HH:mm:ss");
 
-            _timer = new DispatcherTimer();
-            _timer.Interval = TimeSpan.FromSeconds(1);
-            _timer.Tick += (s, e) => {
-                TimeDisplay.Text = DateTime.Now.ToString("HH:mm:ss");
-            };
-            _timer.Start();
+            //_timer = new DispatcherTimer();
+            //_timer.Interval = TimeSpan.FromSeconds(1);
+            //_timer.Tick += (s, e) => {
+            //    TimeDisplay.Text = DateTime.Now.ToString("HH:mm:ss");
+            //};
+            //_timer.Start();
 
             // Inicializácia ViewModelu a nastavenie DataContext
             _viewModel = new MainViewModel(new DataService());
@@ -39,8 +43,23 @@ namespace TestBenchTarget.UWP
             InitializeDateSelector(); // - ComboBox for date selection initialization
 
             this.Unloaded += MainPage_Unloaded; // - Unloading event registration (for cleaning resources)
+             
+            _viewModel.DataSavedSuccessfully += ViewModel_DataSavedSuccessfully!;
+            _viewModel.ListClearedSuccessfully += ViewModel_ListClearedSuccessfully!;
+        }
 
-            _viewModel.DataSavedSuccessfully += ViewModel_DataSavedSuccessfully!; 
+        private async void ViewModel_ListClearedSuccessfully(object sender, EventArgs e)
+        {
+            // Display TeachingTip  
+            ClearListSuccessNotification.IsOpen = true;
+
+            // Auto-close after 3 seconds  
+            await Task.Run(() =>
+            {
+                Task.Delay(3000).Wait();
+            });
+
+            ClearListSuccessNotification.IsOpen = false;
         }
 
         private void MainPage_Unloaded(object sender, RoutedEventArgs e)
@@ -87,7 +106,6 @@ namespace TestBenchTarget.UWP
                 System.Diagnostics.Debug.WriteLine($"Error saving data: {ex.Message}");
             }
         }
-
         /// <summary>
         /// EN - Get the default path to the JSON file
         /// SK - Získanie predvolenej cesty k JSON súboru 
@@ -96,7 +114,7 @@ namespace TestBenchTarget.UWP
         private string GetDefaultJsonFilePath()
         {
             string documentsFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            return Path.Combine(documentsFolder, "TestBenchTarget.json"); 
+            return System.IO.Path.Combine(documentsFolder, "TestBenchTarget.json");
         }
 
         private async void ViewModel_DataSavedSuccessfully(object sender, EventArgs e)
@@ -188,6 +206,11 @@ namespace TestBenchTarget.UWP
                 _viewModel.SelectedItem = item;
                 System.Diagnostics.Debug.WriteLine($"ViewModel SelectedItem manually updated");
             }
+        }
+
+        private void TextBlock_Holding(object sender, HoldingRoutedEventArgs e)
+        {
+
         }
     }
 
