@@ -9,6 +9,11 @@
     <AppIconSource>C:\Users\rudol\Downloads\TestBenchTarget-r–k.png</AppIconSource>
     <SplashScreenSource>C:\Users\rudol\Downloads\TestBenchTarget-r–k.png</SplashScreenSource>
     <PackageLogoSource>C:\Users\rudol\Downloads\TestBenchTarget-r–k.png</PackageLogoSource>
+    <_LastSelectedProfileId>C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\Properties\PublishProfiles\win-x86.pubxml</_LastSelectedProfileId>
+    <AppxShowAllApps>True</AppxShowAllApps>
+    <UapAppxPackageBuildMode>StoreAndSideload</UapAppxPackageBuildMode>
+    <AppxBuildConfigurationSelection>x64</AppxBuildConfigurationSelection>
+    <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
   </PropertyGroup>
   <ItemGroup>
     <None Update="Package.appxmanifest">

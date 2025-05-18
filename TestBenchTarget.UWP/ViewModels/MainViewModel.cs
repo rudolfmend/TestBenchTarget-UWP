@@ -1,14 +1,14 @@
-﻿using System;
-using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Newtonsoft.Json;
+using System;
+using System.Threading.Tasks;
 using TestBenchTarget.UWP.Models;
 using TestBenchTarget.UWP.Services;
 using Windows.Storage;
 using Windows.System;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
 
 namespace TestBenchTarget.UWP.ViewModels
 {
@@ -36,6 +36,25 @@ namespace TestBenchTarget.UWP.ViewModels
                     // Notification of command about possible state change // Notifikácia príkazu o možnej zmene stavu
                     DeleteCommand.NotifyCanExecuteChanged();
                     System.Diagnostics.Debug.WriteLine("NotifyCanExecuteChanged called on DeleteCommand");
+                }
+            }
+        }
+
+        private string _dateFormat = "dd.MM.yyyy";
+        public string DateFormat
+        {
+            get => _dateFormat;
+            set
+            {
+                if (SetProperty(ref _dateFormat, value))
+                {
+                    // Ak sa zmenil formát, preparsujeme existujúci dátum a naformátujeme ho na nový formát
+                    if (DateTime.TryParseExact(_selectedDateString, "dd.MM.yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime date) ||
+                        DateTime.TryParseExact(_selectedDateString, "MM/dd/yyyy", null, System.Globalization.DateTimeStyles.None, out date) ||
+                        DateTime.TryParseExact(_selectedDateString, "yyyy-MM-dd", null, System.Globalization.DateTimeStyles.None, out date))
+                    {
+                        SelectedDateString = date.ToString(value);
+                    }
                 }
             }
         }
@@ -68,8 +87,9 @@ namespace TestBenchTarget.UWP.ViewModels
             set => SetProperty(ref _delegateText, value);
         }
 
-        // Events // Udalosti
-        public event EventHandler ListClearedSuccessfully; 
+        // Events // Deklarácie udalosti
+        public event EventHandler? ListClearedSuccessfully;
+        public event EventHandler? DataSavedSuccessfully;
 
 
         // Commands // Príkazy
@@ -79,7 +99,8 @@ namespace TestBenchTarget.UWP.ViewModels
         public IRelayCommand DeleteCommand { get; }
         public IRelayCommand OpenFolderCommand { get; }
         public IRelayCommand ClearFormCommand { get; }
-        public IRelayCommand ClearListCommand { get; } 
+        public IRelayCommand ClearListCommand { get; }
+        public IRelayCommand ExportDataCommand { get; }
 
         public MainViewModel(DataService dataService)
         {
@@ -89,13 +110,14 @@ namespace TestBenchTarget.UWP.ViewModels
             DataItems = _dataService.DataList;
 
             // Initialization of commands
-            AddCommand = new RelayCommand(Add);
+            AddCommand = new RelayCommand(AddData);
             LoadCommand = new RelayCommand(LoadData);
             SaveCommand = new RelayCommand(SaveData);
             DeleteCommand = new RelayCommand(Delete, CanDelete);
             OpenFolderCommand = new RelayCommand(OpenFolder);
             ClearFormCommand = new RelayCommand(ClearForm);
             ClearListCommand = new RelayCommand(ClearList);
+            ExportDataCommand = new RelayCommand(ExportData);
 
             // Initialization of data loading
             _ = InitializeAsync();
@@ -113,13 +135,15 @@ namespace TestBenchTarget.UWP.ViewModels
             }
         }
 
-        private void Add()
+        private void AddData()
         {
             try
             {
-                // Trying to parse the selected date // Skúsiť konvertovať vybraný dátum
-                if (!DateTime.TryParseExact(_selectedDateString, "dd.MM.yyyy", null,
-                    System.Globalization.DateTimeStyles.None, out DateTime selectedDate))
+                DateTime selectedDate;
+
+                // Skúsime konvertovať dátum podľa aktuálneho formátu
+                if (!DateTime.TryParseExact(_selectedDateString, _dateFormat, null,
+                    System.Globalization.DateTimeStyles.None, out selectedDate))
                 {
                     selectedDate = DateTime.Now.Date;
                 }
@@ -191,9 +215,6 @@ namespace TestBenchTarget.UWP.ViewModels
                 await ShowErrorDialog("Error saving data", ex.Message);
             }
         }
-
-
-        public event EventHandler DataSavedSuccessfully;
 
         private void Delete()
         {
@@ -293,6 +314,16 @@ namespace TestBenchTarget.UWP.ViewModels
                 System.Diagnostics.Debug.WriteLine("List cleared");
                 DeleteCommand.NotifyCanExecuteChanged();
                 ListClearedSuccessfully?.Invoke(this, EventArgs.Empty);
+            }
+        }
+
+        private async void ExportData()
+        {
+            var page = Window.Current.Content as Frame;
+            var mainPage = page?.Content as MainPage;
+            if (mainPage != null)
+            {
+                await mainPage.ExportDataAsync();
             }
         }
     }

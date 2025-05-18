@@ -1,6 +1,7 @@
 ﻿using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 
 namespace TestBenchTarget.UWP
 {
@@ -12,11 +13,9 @@ namespace TestBenchTarget.UWP
         {
             this.InitializeComponent();
 
-            // Nastavenie času a dátumu
             TimeDisplay.Text = DateTime.Now.ToString("HH:mm:ss");
             DateDisplay.Text = DateTime.Now.ToString("dd.MM.yyyy");
 
-            // Nastavenie časovača
             _timer = new DispatcherTimer();
             _timer.Interval = TimeSpan.FromSeconds(1);
             _timer.Tick += (s, e) =>
@@ -24,9 +23,17 @@ namespace TestBenchTarget.UWP
                 TimeDisplay.Text = DateTime.Now.ToString("HH:mm:ss");
             };
             _timer.Start();
-
-            // Registrovať udalosť pre vyčistenie zdrojov
+            
+            // Event registration for resource cleanup // Registrovať udalosť pre vyčistenie zdrojov
             this.Unloaded += StartPage_Unloaded;
+                        
+            // Add KeyboardAccelerator for Enter // Pridanie KeyboardAccelerator pre Enter
+            KeyboardAccelerator enterAccelerator = new KeyboardAccelerator
+            {
+                Key = Windows.System.VirtualKey.Enter
+            };
+            enterAccelerator.Invoked += EnterAccelerator_Invoked;
+            this.KeyboardAccelerators.Add(enterAccelerator);
         }
 
         private void StartPage_Unloaded(object sender, RoutedEventArgs e)
@@ -101,6 +108,18 @@ namespace TestBenchTarget.UWP
 
             // Zobrazenie dialógu
             await aboutDialog.ShowAsync();
+        }
+
+        private void EnterAccelerator_Invoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
+        {
+            // Navigate to MainPage when Enter is pressed
+            NavigateToMainPage();
+            args.Handled = true;
+        }
+
+        private void NavigateToMainPage()
+        {
+            this.Frame.Navigate(typeof(MainPage));
         }
     }
 }

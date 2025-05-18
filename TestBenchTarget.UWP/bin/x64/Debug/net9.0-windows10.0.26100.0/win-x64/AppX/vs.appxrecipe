@@ -19,36 +19,36 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\bin\x64\Debug\net9.0-windows10.0.26100.0\win-x64\AppX</LayoutDir>
-    <RegisteredManifestChecksum>71AF49D1A4FC822AF9A0BDD64F25CD21DFCA2849A4CAD2402450D72C32FB309B</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>TestBenchTarget.UWP_1.0.0.0_x64__jv9tjdzaezhwj</RegisteredPackageMoniker>
+    <RegisteredManifestChecksum>0E06357A1DBBBC5CCD926DBD3AE0C41692688A323029A4A1DC16A47BC4523A07</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>TestBenchTarget.UWP_1.0.23145.0_x64__jv9tjdzaezhwj</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>TestBenchTarget.UWP_jv9tjdzaezhwj!App</RegisteredUserModeAppID>
     <RegisteredPackageID>TestBenchTarget.UWP</RegisteredPackageID>
     <RegisteredPackagePublisher>CN=Rudolf Mendzezof</RegisteredPackagePublisher>
-    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <RegisteredVersion>1.0.23145.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\bin\x64\Debug\net9.0-windows10.0.26100.0\win-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-05-16T19:14:18.427</Modified>
+      <Modified>2025-05-18T19:34:50.054</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\bin\x64\Debug\net9.0-windows10.0.26100.0\win-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2025-05-16T19:14:17.823</Modified>
+      <Modified>2025-05-18T19:34:49.348</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\bin\x64\Debug\net9.0-windows10.0.26100.0\win-x64\TestBenchTarget.UWP.runtimeconfig.json">
       <PackagePath>TestBenchTarget.UWP.runtimeconfig.json</PackagePath>
-      <Modified>2025-05-15T21:55:30.341</Modified>
+      <Modified>2025-05-18T17:48:24.063</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\bin\x64\Debug\net9.0-windows10.0.26100.0\win-x64\TestBenchTarget.UWP.dll">
       <PackagePath>TestBenchTarget.UWP.dll</PackagePath>
-      <Modified>2025-05-16T19:14:17.202</Modified>
+      <Modified>2025-05-18T19:34:47.698</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\obj\x64\Debug\net9.0-windows10.0.26100.0\win-x64\apphost.exe">
       <PackagePath>TestBenchTarget.UWP.exe</PackagePath>
-      <Modified>2025-05-16T19:14:17.354</Modified>
+      <Modified>2025-05-18T19:34:47.830</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rudol\.nuget\packages\microsoft.netcore.app.runtime.win-x64\9.0.5\runtimes\win-x64\lib\net9.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -824,7 +824,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\obj\x64\Debug\net9.0-windows10.0.26100.0\win-x64\TestBenchTarget.UWP.deps.json">
       <PackagePath>TestBenchTarget.UWP.deps.json</PackagePath>
-      <Modified>2025-05-15T21:55:31.051</Modified>
+      <Modified>2025-05-18T19:34:49.649</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.26100.0\Redist\Debug\x64\ucrtbased.dll">
       <PackagePath>ucrtbased.dll</PackagePath>

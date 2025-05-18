@@ -23,7 +23,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net9.0-windows10.0.26100.0"
+          "uap10.0.19041.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -31,8 +31,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net9.0-windows10.0.26100": {
-            "targetAlias": "net9.0-windows10.0.26100.0",
+          "uap10.0.17763": {
+            "targetAlias": "uap10.0.19041.0",
             "projectReferences": {}
           }
         },
@@ -49,30 +49,20 @@
         "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
-        "net9.0-windows10.0.26100": {
-          "targetAlias": "net9.0-windows10.0.26100.0",
+        "uap10.0.17763": {
+          "targetAlias": "uap10.0.19041.0",
           "dependencies": {
-            "CommunityToolkit.Mvvm": {
+            "Microsoft.NETCore.UniversalWindowsPlatform": {
               "target": "Package",
-              "version": "[8.4.0, )"
+              "version": "[6.2.14, )"
+            },
+            "Microsoft.Toolkit.Mvvm": {
+              "target": "Package",
+              "version": "[7.1.2, )"
             },
             "Microsoft.UI.Xaml": {
               "target": "Package",
-              "version": "[2.8.7, )"
-            },
-            "Microsoft.Windows.SDK.BuildTools": {
-              "include": "Build",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[10.0.22621.3233, )",
-              "autoReferenced": true
-            },
-            "Microsoft.Windows.SDK.BuildTools.MSIX": {
-              "include": "Build",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[1.2.20250107.1, )",
-              "autoReferenced": true
+              "version": "[2.8.5, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -80,80 +70,25 @@
             }
           },
           "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
+            "uap10.0.19041",
+            "net461"
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Runtime.win-arm64",
-              "version": "[9.0.5, 9.0.5]"
-            },
-            {
-              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-              "version": "[9.0.5, 9.0.5]"
-            },
-            {
-              "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
-              "version": "[9.0.5, 9.0.5]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.win-arm64",
-              "version": "[9.0.5, 9.0.5]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.win-x64",
-              "version": "[9.0.5, 9.0.5]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.win-x86",
-              "version": "[9.0.5, 9.0.5]"
-            },
-            {
-              "name": "Microsoft.Windows.SDK.NET.Ref",
-              "version": "[10.0.26100.57, 10.0.26100.57]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-              "version": "[9.0.5, 9.0.5]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-              "version": "[9.0.5, 9.0.5]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-              "version": "[9.0.5, 9.0.5]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            },
-            "Microsoft.Windows.SDK.NET.Ref.Windows": {
-              "privateAssets": "all"
-            },
-            "Microsoft.Windows.SDK.NET.Ref.Xaml": {
-              "privateAssets": "none"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.204\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
-        "win-arm64": {
-          "#import": []
-        },
         "win-x64": {
           "#import": []
         },
-        "win-x86": {
+        "win10-arm64": {
+          "#import": []
+        },
+        "win10-x64": {
+          "#import": []
+        },
+        "win10-x86": {
           "#import": []
         }
       }
