@@ -9,7 +9,7 @@
 	  Name="RudolfMendzezof.197270BC50CAA"
 	  Publisher="CN=A22C22A7-5E85-49D2-8EEF-B99583D1BE25"
 	  Version="1.0.23145.0" />
-	<mp:PhoneIdentity PhoneProductId="a2b6a2c4-2382-46e6-9984-5c7d17cea5e8" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+	<mp:PhoneIdentity PhoneProductId="a5c47f6c-f254-4fc2-95c8-586a832e6205" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 	<Properties>
 		<DisplayName>TestBench Target</DisplayName>
 		<PublisherDisplayName>Rudolf Mendzezof</PublisherDisplayName>
@@ -24,7 +24,7 @@
 	<Applications>
 		<Application Id="App"
 		  Executable="$targetnametoken$.exe"
-		  EntryPoint="TestBenchTarget.UWP.App" uap18:TrustLevel="appContainer" >
+		  EntryPoint="TestBenchTarget.UWP.App" uap18:TrustLevel="appContainer">
 			<uap:VisualElements
 			  DisplayName="TestBench Target"
 			  Square150x150Logo="Assets\Square150x150Logo.png"

@@ -1,67 +1,79 @@
 ﻿<Application  
-   x:Class="TestBenchTarget.UWP.App"  
-   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  
-   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  
-   xmlns:local="using:TestBenchTarget.UWP"  
-   xmlns:muxc="using:Microsoft.UI.Xaml.Controls">
+  x:Class="TestBenchTarget.UWP.App"  
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  
+  xmlns:local="using:TestBenchTarget.UWP">  
 
-    <Application.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <muxc:XamlControlsResources />
-            </ResourceDictionary.MergedDictionaries>
+   <Application.Resources>
+       <ResourceDictionary>
 
-            <!-- Margins & Padding s pevnými hodnotami -->
-            <Thickness x:Key="HeaderMargin">20,10,50,50</Thickness>
-            <Thickness x:Key="ListViewMargin">0,0,50,0</Thickness>
-            <Thickness x:Key="RightPanelMargin">0,70,0,0</Thickness>
-            <Thickness x:Key="ButtonGridMargin">0,20,0,0</Thickness>
-            <Thickness x:Key="TableHeaderPadding">30,0,30,20</Thickness>
-            <Thickness x:Key="TableCellPadding">15,15,15,8</Thickness>
-            <Thickness x:Key="ListViewPadding">20</Thickness>
-            <Thickness x:Key="StandardMargin">0,10,0,10</Thickness>
-            <Thickness x:Key="SmallMargin">0,5,0,5</Thickness>
-            <Thickness x:Key="NormalPadding">10</Thickness>
+           <!-- Margins & Padding s pevnými hodnotami -->
+           <Thickness x:Key="HeaderMargin">20,10,50,50</Thickness>
+           <Thickness x:Key="ListViewMargin">0,0,50,0</Thickness>
+           <Thickness x:Key="RightPanelMargin">0,70,0,0</Thickness>
+           <Thickness x:Key="ButtonGridMargin">0,20,0,0</Thickness>
+           <Thickness x:Key="TableHeaderPadding">30,0,30,20</Thickness>
+           <Thickness x:Key="TableCellPadding">15,15,15,8</Thickness>
+           <Thickness x:Key="ListViewPadding">20</Thickness>
+           <Thickness x:Key="StandardMargin">0,10,0,10</Thickness>
+           <Thickness x:Key="SmallMargin">0,5,0,5</Thickness>
+           <Thickness x:Key="NormalPadding">10</Thickness>
 
-            <!-- Global converters -->
-            <local:DateFormatConverter x:Key="DateConverter"/>
+           <!-- Global converters -->
+           <local:DateFormatConverter x:Key="DateConverter"/>
 
-            <!-- Štýly pre text -->
-            <Style x:Key="TitleTextStyle" TargetType="TextBlock">
-                <Setter Property="FontSize" Value="20"/>
-                <Setter Property="FontWeight" Value="SemiBold"/>
-                <Setter Property="Margin" Value="20,10"/>
-                <Setter Property="TextWrapping" Value="Wrap"/>
-            </Style>
+           <!-- Štýly pre text -->
+           <Style x:Key="TitleTextStyle" TargetType="TextBlock">
+               <Setter Property="FontSize" Value="20"/>
+               <Setter Property="FontWeight" Value="SemiBold"/>
+               <Setter Property="Margin" Value="20,10"/>
+               <Setter Property="TextWrapping" Value="Wrap"/>
+           </Style>
 
-            <!-- NumberBox vlastný štýl -->
-            <Style x:Key="SpinBoxStyle" TargetType="muxc:NumberBox">
+           <!-- NumberBox vlastný štýl -->
+           <!--<Style x:Key="SpinBoxStyle">
+               <Setter Property="FontSize" Value="16" />
+               <Setter Property="MinHeight" Value="50" />
+               <Setter Property="Width" Value="80" />
+               <Setter Property="MinWidth" Value="80" />
+               <Setter Property="SpinButtonPlacementMode" Value="Inline" />
+               <Setter Property="SmallChange" Value="1" />
+               <Setter Property="LargeChange" Value="10" />
+               <Setter Property="Margin" Value="15,0,0,0" />
+               <Setter Property="HorizontalAlignment" Value="Right" />
+               <Setter Property="VerticalAlignment" Value="Center" />
+               <Setter Property="ValidationMode" Value="InvalidInputOverwritten" />
+           </Style>-->
+            <!-- Vlastný štýl pre TextBox - náhrada za UI.Xaml -->
+            <Style x:Key="SpinBoxStyle" TargetType="TextBox">
                 <Setter Property="FontSize" Value="16" />
                 <Setter Property="MinHeight" Value="50" />
                 <Setter Property="Width" Value="80" />
                 <Setter Property="MinWidth" Value="80" />
-                <Setter Property="SpinButtonPlacementMode" Value="Inline" />
-                <Setter Property="SmallChange" Value="1" />
-                <Setter Property="LargeChange" Value="10" />
+                <!-- Odstráňte vlastnosti, ktoré nie sú podporované pre TextBox -->
+                <!-- <Setter Property="SpinButtonPlacementMode" Value="Inline" /> -->
+                <!-- <Setter Property="SmallChange" Value="1" /> -->
+                <!-- <Setter Property="LargeChange" Value="10" /> -->
+                <!-- <Setter Property="ValidationMode" Value="InvalidInputOverwritten" /> -->
                 <Setter Property="Margin" Value="15,0,0,0" />
                 <Setter Property="HorizontalAlignment" Value="Right" />
                 <Setter Property="VerticalAlignment" Value="Center" />
-                <Setter Property="ValidationMode" Value="InvalidInputOverwritten" />
             </Style>
+           
 
             <Style x:Key="TableHeaderStyle" TargetType="TextBlock">
-                <Setter Property="FontSize" Value="16"/>
-                <Setter Property="FontWeight" Value="Bold"/>
-                <Setter Property="Margin" Value="8"/>
-                <Setter Property="TextWrapping" Value="Wrap"/>
-            </Style>
+               <Setter Property="FontSize" Value="16"/>
+               <Setter Property="FontWeight" Value="Bold"/>
+               <Setter Property="Margin" Value="8"/>
+               <Setter Property="TextWrapping" Value="Wrap"/>
+           </Style>
 
-            <Style x:Key="TableCellStyle" TargetType="TextBlock">
-                <Setter Property="FontSize" Value="14"/>
-                <Setter Property="Margin" Value="8"/>
-                <Setter Property="VerticalAlignment" Value="Center"/>
-                <Setter Property="TextWrapping" Value="Wrap"/>
-            </Style>
-        </ResourceDictionary>
-    </Application.Resources>
+           <Style x:Key="TableCellStyle" TargetType="TextBlock">
+               <Setter Property="FontSize" Value="14"/>
+               <Setter Property="Margin" Value="8"/>
+               <Setter Property="VerticalAlignment" Value="Center"/>
+               <Setter Property="TextWrapping" Value="Wrap"/>
+           </Style>
+       </ResourceDictionary>
+   </Application.Resources>
 </Application>

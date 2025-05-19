@@ -3,7 +3,6 @@
    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  
    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  
    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-   xmlns:muxc="using:Microsoft.UI.Xaml.Controls"  
    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
    xmlns:local="using:TestBenchTarget.UWP" 
    xmlns:viewmodels="using:TestBenchTarget.UWP.ViewModels" 
@@ -306,59 +305,46 @@
             </RelativePanel>
         </ScrollViewer>
 
-        <!-- Teaching Tips - zachované bez zmien -->
-        <muxc:TeachingTip  
-           x:Name="SaveSuccessNotification"  
-           Title="Success"  
-           Subtitle="Data has been saved successfully"  
-           IsLightDismissEnabled="True"  
-           PreferredPlacement="Top"  
-           CloseButtonContent="OK"  
-           AutomationProperties.AutomationId="SaveSuccessTeachingTip"/>
+        <ContentDialog  
+            x:Name="SaveSuccessNotification"  
+            Title="Success"  
+            Content="Data has been saved successfully"  
+            CloseButtonText="OK"
+            AutomationProperties.AutomationId="SaveSuccessTeachingTip"/>
 
-        <muxc:TeachingTip   
-           x:Name="SaveErrorNotification"  
-           Title="Error"  
-           Subtitle="Error while saving data"  
-           IsLightDismissEnabled="True"  
-           PreferredPlacement="Top"  
-           CloseButtonContent="OK"  
-           AutomationProperties.AutomationId="SaveErrorTeachingTip"/>
+        <ContentDialog 
+            x:Name="SaveErrorNotification"  
+            Title="Error"              
+            Content="Error while saving data"
+            CloseButtonText="OK"
+            AutomationProperties.AutomationId="SaveErrorTeachingTip"/>
 
-        <muxc:TeachingTip  
-           x:Name="LoadErrorNotification"  
-           Title="Error"  
-           Subtitle="Error while loading data"  
-           IsLightDismissEnabled="True"  
-           PreferredPlacement="Top"  
-           CloseButtonContent="OK"  
-           AutomationProperties.AutomationId="LoadErrorTeachingTip"/>
+        <ContentDialog
+            x:Name="LoadErrorNotification"  
+            Title="Error"  
+            Content="Error while loading data" 
+            CloseButtonText="OK"
+            AutomationProperties.AutomationId="LoadErrorTeachingTip"/>
 
-        <muxc:TeachingTip  
+        <ContentDialog  
            x:Name="DeleteErrorNotification"   
            Title="Error"  
-           Subtitle="Error while deleting data"  
-           IsLightDismissEnabled="True"  
-           PreferredPlacement="Top"  
-           CloseButtonContent="OK"  
+           Content="Error while deleting data"    
+           CloseButtonText="OK"  
            AutomationProperties.AutomationId="DeleteErrorTeachingTip"/>
 
-        <muxc:TeachingTip  
+        <ContentDialog  
            x:Name="OpenFolderErrorNotification"  
            Title="Error"  
-           Subtitle="Error while opening folder"  
-           IsLightDismissEnabled="True"  
-           PreferredPlacement="Top"  
-           CloseButtonContent="OK"  
+           Content="Error while opening folder"   
+           CloseButtonText="OK"  
            AutomationProperties.AutomationId="OpenFolderTeachingTip"/>
 
-        <muxc:TeachingTip
+        <ContentDialog
            x:Name="ClearListSuccessNotification"  
            Title="Success"  
-           Subtitle="The list has been cleared successfully"  
-           IsLightDismissEnabled="True"  
-           PreferredPlacement="Top"  
-           CloseButtonContent="OK"  
+           Content="The list has been cleared successfully"  
+           CloseButtonText="OK"  
            AutomationProperties.AutomationId="ClearListSuccessTeachingTip"/>
     </Grid>
 

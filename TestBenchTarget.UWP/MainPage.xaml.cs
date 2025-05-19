@@ -218,12 +218,7 @@ namespace TestBenchTarget.UWP
 
         private async void ViewModel_ListClearedSuccessfully(object sender, EventArgs e)
         {
-            // Display TeachingTip  
-            ClearListSuccessNotification.IsOpen = true;
-            // Auto-close after 5 seconds  
-            await Task.Delay(5000);
-
-            ClearListSuccessNotification.IsOpen = false;
+            await ClearListSuccessNotification.ShowAsync();
         }
 
         private void MainPage_Unloaded(object sender, RoutedEventArgs e)
@@ -264,13 +259,7 @@ namespace TestBenchTarget.UWP
 
         private async void ViewModel_DataSavedSuccessfully(object sender, EventArgs e)
         {
-            // Display TeachingTip  
-            SaveSuccessNotification.IsOpen = true;
-
-            // Auto-close after 5 seconds  
-            await Task.Delay(5000);
-
-            SaveSuccessNotification.IsOpen = false;
+            await SaveSuccessNotification.ShowAsync();
         }
 
         private void PointsInput_TextChanged(object sender, TextChangedEventArgs e)
