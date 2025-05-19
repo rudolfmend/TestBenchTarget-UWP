@@ -8,7 +8,7 @@
     <TargetOsDescription></TargetOsDescription>
     <SolutionConfiguration>Debug|x64</SolutionConfiguration>
     <PackageArchitecture>x64</PackageArchitecture>
-    <PackageIdentityName>TestBenchTarget.UWP</PackageIdentityName>
+    <PackageIdentityName>RudolfMendzezof.197270BC50CAA</PackageIdentityName>
     <PackageIdentityPublisher>CN=Rudolf Mendzezof</PackageIdentityPublisher>
     <IntermediateOutputPath>C:\Users\rudol\source\repos\TestBenchTarget.UWP\TestBenchTarget.UWP\obj\x64\Debug\net9.0-windows10.0.26100.0\win-x64\</IntermediateOutputPath>
     <RemoteDeploymentType>CopyToDevice</RemoteDeploymentType>

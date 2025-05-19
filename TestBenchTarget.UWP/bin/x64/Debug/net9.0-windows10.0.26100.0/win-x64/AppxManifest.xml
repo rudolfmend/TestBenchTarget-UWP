@@ -7,8 +7,8 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="TestBenchTarget.UWP" Publisher="CN=Rudolf Mendzezof" Version="1.0.23145.0" ProcessorArchitecture="x64" />
-  <mp:PhoneIdentity PhoneProductId="4532565a-0076-4e27-b04b-c8fb2b244644" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="RudolfMendzezof.197270BC50CAA" Publisher="CN=Rudolf Mendzezof" Version="1.0.23145.0" ProcessorArchitecture="x64" />
+  <mp:PhoneIdentity PhoneProductId="a2b6a2c4-2382-46e6-9984-5c7d17cea5e8" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>TestBench Target</DisplayName>
     <PublisherDisplayName>Rudolf Mendzezof</PublisherDisplayName>
@@ -23,7 +23,7 @@
     <Resource Language="EN-US" />
   </Resources>
   <Applications>
-    <Application Id="App" Executable="TestBenchTarget.UWP.exe" EntryPoint="TestBenchTarget.UWP.App" uap18:TrustLevel="mediumIL" uap18:RuntimeBehavior="win32App">
+    <Application Id="App" Executable="TestBenchTarget.UWP.exe" EntryPoint="TestBenchTarget.UWP.App" uap18:TrustLevel="appContainer">
       <uap:VisualElements DisplayName="TestBench Target" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" BackgroundColor="white" Description="A sample application designed to serve as a testing subject for developers creating monitoring, accessibility, or UI automation tools. This app provides predictable user interface elements and behaviors that developers can use to test their monitoring solutions.">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" ShortName="TestBench Target" Square71x71Logo="Assets\SmallTile.png" Square310x310Logo="Assets\LargeTile.png">
           <uap:ShowNameOnTiles>

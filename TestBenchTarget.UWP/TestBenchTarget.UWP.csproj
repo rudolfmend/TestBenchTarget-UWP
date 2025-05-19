@@ -1,17 +1,22 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.44">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>uap10.0.19041.0</TargetFramework>
-		<TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net9.0-windows10.0.26100.0</TargetFramework>
 		<TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
-		<DefineConstants>WINDOWS_UWP</DefineConstants>
-		<OutputType>AppContainerExe</OutputType>
-		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
+		<UseUwp>true</UseUwp>
 		<Platforms>x86;x64;arm64</Platforms>
-		<RuntimeIdentifiers>win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
+		<NoWarn>$(NoWarn);CA1416</NoWarn>
+		<RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
 		<DefaultLanguage>en-US</DefaultLanguage>
+		<!--<PublishAot>true</PublishAot>-->
 		<PublishProfile>win-$(Platform).pubxml</PublishProfile>
-		<AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+		<DisableRuntimeMarshalling>true</DisableRuntimeMarshalling>
+		<EnableMsixTooling>true</EnableMsixTooling>
 		<PackageCertificateKeyFile>TestBenchTarget.UWP_TemporaryKey.pfx</PackageCertificateKeyFile>
+		<AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+		<!--<ApplicationManifest>app.manifest</ApplicationManifest>-->
+		<!-- Pridané nastavenia pre riešenie problému s podpisovaním -->
 		<GenerateAppInstallerFile>False</GenerateAppInstallerFile>
 		<AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
 		<AppxSymbolPackageEnabled>True</AppxSymbolPackageEnabled>
@@ -19,70 +24,10 @@
 		<HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
 		<AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
 		<AppxBundle>Never</AppxBundle>
-		<UseUWP>true</UseUWP>
-		<AssetTargetFallback>uap10.0.19041.0</AssetTargetFallback>
-		<AppxPackageDir>$(OutputPath)\AppPackages\</AppxPackageDir>
 	</PropertyGroup>
-
 	<ItemGroup>
-		<!-- App.xaml -->
-		<ApplicationDefinition Include="App.xaml">
-			<Generator>MSBuild:Compile</Generator>
-			<SubType>Designer</SubType>
-		</ApplicationDefinition>
-	</ItemGroup>
-
-	<ItemGroup>
-		<!-- Pages -->
-		<Page Include="MainPage.xaml">
-			<Generator>MSBuild:Compile</Generator>
-			<SubType>Designer</SubType>
-		</Page>
-		<Page Include="StartPage.xaml">
-			<Generator>MSBuild:Compile</Generator>
-			<SubType>Designer</SubType>
-		</Page>
-	</ItemGroup>
-
-	<ItemGroup>
-		<!-- Assets -->
-		<Content Include="Assets\**\*" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<!-- Code files -->
-		<Compile Include="App.xaml.cs">
-			<DependentUpon>App.xaml</DependentUpon>
-		</Compile>
-		<Compile Include="MainPage.xaml.cs">
-			<DependentUpon>MainPage.xaml</DependentUpon>
-		</Compile>
-		<Compile Include="StartPage.xaml.cs">
-			<DependentUpon>StartPage.xaml</DependentUpon>
-		</Compile>
-		<Compile Include="Models\**\*.cs" />
-		<Compile Include="Services\**\*.cs" />
-		<Compile Include="ViewModels\**\*.cs" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<!-- Standardní UWP reference -->
-		<PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.14" />
-		<PackageReference Include="Microsoft.UI.Xaml" Version="2.8.5" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+		<PackageReference Include="Microsoft.UI.Xaml" Version="2.8.7" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-		<PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
 	</ItemGroup>
-
-	<ItemGroup>
-		<!-- UWP Runtime reference -->
-		<SDKReference Include="Microsoft.VCLibs, Version=14.0">
-			<Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
-		</SDKReference>
-	</ItemGroup>
-
-	<PropertyGroup>
-		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-		<DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
-		<NoWarn>$(NoWarn);2008;1998;CA1416</NoWarn>
-	</PropertyGroup>
 </Project>
